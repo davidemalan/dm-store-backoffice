@@ -45,4 +45,8 @@ yarn preview
 
 Open [http://localhost:4173/](http://localhost:4173/) with your browser to see the result.
 
+## Deployed version
+
+To check the latest deployed version of the project, visit: 
+[https://davidemalan.github.io/dm-store-backoffice/](https://davidemalan.github.io/dm-store-backoffice/)
 <!-- TODO ## Env Variables -->
