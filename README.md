@@ -30,9 +30,9 @@ yarn dev
 Open [http://localhost:5173/](http://localhost:5173/) with your browser to see the result.
 
 ## Build for production
-If you want, you can double-check the final production output using:
 
-First, build the packages for production:
+If wanted, the final production output can be double-check by doing the following:
+
 ```bash
 yarn build
 ```
