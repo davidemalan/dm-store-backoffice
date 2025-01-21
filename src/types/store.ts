@@ -23,3 +23,18 @@ export interface Product {
     reviews: [string];
   };
 }
+
+export interface NewProduct {
+  productId: string;
+  title: string;
+  category: string;
+  price: number;
+  employee: string;
+  description: string;
+  reviews: string[];
+}
+
+export interface StoreCategoryStats {
+  numberOfProducts: number;
+  category: string;
+}
