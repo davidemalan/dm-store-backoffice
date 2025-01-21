@@ -1,0 +1,7 @@
+**/README.md
+**/.yarn/**
+**/node_modules/**
+**/public/**
+**/eslint/**
+**/*.json
+**/*.min.css
