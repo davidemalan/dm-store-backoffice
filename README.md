@@ -1,50 +1,48 @@
 # React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Starting from the minimal template setup using Vite + React + Typescript with HMR and some ESLint rules:
+[@vitejs/plugin-react](https://vite.dev/guide/) 
 
 ## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Added some common/custom lint rules in order to make it more production like and added prettier for formatting and allows to have consistency and readability throughout the files.
+Check:
+- `eslint.config.js`
+- `.prettierrc`
 
-- Configure the top-level `parserOptions` property like this:
+## Add CSS preprocessor
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+Added Sass in order to write generic css as scss (more comfortable).
+
+## Getting Started
+
+First, install the dependencies:
+```bash
+yarn install
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+Then run the development server:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```bash
+yarn dev
 ```
+
+Open [http://localhost:5173/](http://localhost:5173/) with your browser to see the result.
+
+## Build for production
+If you want, you can double-check the final production output using:
+
+First, build the packages for production:
+```bash
+yarn build
+```
+
+Then run the production preview:
+
+```bash
+yarn preview
+```
+
+Open [http://localhost:4173/](http://localhost:4173/) with your browser to see the result.
+
+<!-- TODO ## Env Variables -->
