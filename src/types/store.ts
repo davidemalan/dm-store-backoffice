@@ -1,10 +1,12 @@
 export interface Store {
   id: string;
-  data: {
-    name: string;
-    category: string;
-    employees: string[];
-  };
+  data: StoreData;
+}
+
+export interface StoreData {
+  name: string;
+  category: string;
+  employees: string[];
 }
 
 export interface ProductList {
@@ -14,14 +16,16 @@ export interface ProductList {
 
 export interface Product {
   id: string;
-  data: {
-    title: string;
-    category: string;
-    price: 0;
-    employee: string;
-    description: string;
-    reviews: [string];
-  };
+  data: ProductData;
+}
+
+export interface ProductData {
+  title: string;
+  category: string;
+  price: 0;
+  employee: string;
+  description: string;
+  reviews: string[];
 }
 
 export interface NewProduct {

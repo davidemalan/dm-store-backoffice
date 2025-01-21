@@ -1,6 +1,6 @@
 import { AxiosRequestConfig, AxiosResponse } from 'axios';
 
-import { NewProduct, Product, ProductList, Store, StoreCategoryStats } from '../types/store';
+import { NewProduct, ProductData, ProductList, Store, StoreCategoryStats } from '../types/store';
 
 import { client } from './axios';
 
@@ -34,7 +34,7 @@ export const getProductById = (
   idStore: string,
   idProduct: string,
   httpConfig: AxiosRequestConfig<any> = {}
-): Promise<AxiosResponse<Product>> => {
+): Promise<AxiosResponse<ProductData>> => {
   const url = `/api/stores/${idStore}/products/${idProduct}`;
 
   return client.get(url, httpConfig);
@@ -65,7 +65,7 @@ export const deleteProduct = (
   idStore: string,
   idProduct: string,
   httpConfig: AxiosRequestConfig<any> = {}
-): Promise<AxiosResponse<string>> => {
+): Promise<AxiosResponse> => {
   const url = `/api/stores/${idStore}/products/${idProduct}`;
 
   return client.delete(url, httpConfig);
