@@ -31,17 +31,6 @@ export default tseslint.config(
       '@typescript-eslint/no-unused-expressions': ['error', { allowShortCircuit: true, allowTernary: true }],
       'no-case-declarations': 'off',
       'no-prototype-builtins': 'off',
-      'no-restricted-imports': [
-        'error',
-        {
-          patterns: [
-            {
-              group: ['../*'],
-              message: 'Import from a parent is restricted, use @ alias.',
-            },
-          ],
-        },
-      ],
       'import/consistent-type-specifier-style': 'error',
       'import/order': [
         'warn',
