@@ -1,5 +1,6 @@
 import { AxiosRequestConfig, AxiosResponse } from 'axios';
 
+import { STORE_ID } from '../consts';
 import { NewProduct, ProductData, ProductList, Store, StoreCategoryStats } from '../types/store';
 
 import { client } from './axios';
@@ -11,47 +12,39 @@ export const getAllStores = (httpConfig = {}): Promise<AxiosResponse<Store[]>> =
   return client.get(url, httpConfig);
 };
 
-export const getStoreById = (
-  idStore: string,
-  httpConfig: AxiosRequestConfig<any> = {}
-): Promise<AxiosResponse<Store>> => {
-  const url = `/api/stores/${idStore}`;
+export const getStoreById = (httpConfig: AxiosRequestConfig<any> = {}): Promise<AxiosResponse<Store>> => {
+  const url = `/api/stores/${STORE_ID}`;
 
   return client.get(url, httpConfig);
 };
 
 /* products */
-export const getProducts = (
-  idStore: string,
-  httpConfig: AxiosRequestConfig<any> = {}
-): Promise<AxiosResponse<ProductList>> => {
-  const url = `/api/stores/${idStore}/products`;
+export const getProducts = (httpConfig: AxiosRequestConfig<any> = {}): Promise<AxiosResponse<ProductList>> => {
+  const url = `/api/stores/${STORE_ID}/products`;
 
   return client.get(url, httpConfig);
 };
 
 export const getProductById = (
-  idStore: string,
   idProduct: string,
   httpConfig: AxiosRequestConfig<any> = {}
 ): Promise<AxiosResponse<ProductData>> => {
-  const url = `/api/stores/${idStore}/products/${idProduct}`;
+  const url = `/api/stores/${STORE_ID}/products/${idProduct}`;
 
   return client.get(url, httpConfig);
 };
 
 export const addProduct = (
-  idStore: string,
   productData: NewProduct,
   httpConfig: AxiosRequestConfig<any> = {}
 ): Promise<AxiosResponse<string>> => {
-  const url = `/api/stores/${idStore}/products/`;
+  const url = `/api/stores/${STORE_ID}/products/`;
 
-  // store property needed for the request but api accepts anything as is using only the url idStore param
+  // store property needed for the request but api accepts anything as is using only the url STORE_ID param
   const body = {
     ...productData,
     store: {
-      idStore: null,
+      STORE_ID: null,
       name: null,
       category: null,
       employees: null,
@@ -61,22 +54,17 @@ export const addProduct = (
   return client.post(url, body, httpConfig);
 };
 
-export const deleteProduct = (
-  idStore: string,
-  idProduct: string,
-  httpConfig: AxiosRequestConfig<any> = {}
-): Promise<AxiosResponse> => {
-  const url = `/api/stores/${idStore}/products/${idProduct}`;
+export const deleteProduct = (idProduct: string, httpConfig: AxiosRequestConfig<any> = {}): Promise<AxiosResponse> => {
+  const url = `/api/stores/${STORE_ID}/products/${idProduct}`;
 
   return client.delete(url, httpConfig);
 };
 
 /* stats */
 export const getStoreStats = (
-  idStore: string,
   httpConfig: AxiosRequestConfig<any> = {}
 ): Promise<AxiosResponse<StoreCategoryStats[]>> => {
-  const url = `/api/stores/${idStore}/stats/categories`;
+  const url = `/api/stores/${STORE_ID}/stats/categories`;
 
   return client.get(url, httpConfig);
 };

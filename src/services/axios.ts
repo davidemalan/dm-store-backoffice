@@ -1,6 +1,8 @@
 import axios, { AxiosInstance } from 'axios';
 
+import { API_BASE_URL } from '../consts';
+
 export const client: AxiosInstance = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL,
+  baseURL: API_BASE_URL,
   headers: { Accept: 'application/json' },
 });
