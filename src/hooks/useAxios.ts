@@ -1,39 +1,39 @@
-import axios, { AxiosResponse } from 'axios';
+import axios from 'axios';
 import { useCallback, useState } from 'react';
 
-type FetchFunction<T> = (...args: any[]) => Promise<AxiosResponse<T>>;
-
-interface UseAxiosResponse<T> {
-  data: T | null;
-  error: string | null;
-  loading: boolean;
-  fetchData: (fetchMethod: FetchFunction<T>) => void;
-}
+import { AxiosFunction, UseAxiosResponse } from '../types/axios';
 
 const useAxios = <T>(): UseAxiosResponse<T> => {
   const [data, setData] = useState<T | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [loading, setLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const fetchData = useCallback(async (fetchMethod: FetchFunction<T>) => {
-    setLoading(true);
+  // useCallback in order to avoid rerendering infinite loops
+  const apiWrapper = useCallback(async (axiosMethod: AxiosFunction<T>) => {
+    setIsLoading(true);
 
     try {
-      const response = await fetchMethod();
+      // call the method
+      const response = await axiosMethod();
 
       setData(response.data);
     } catch (err) {
-      if (axios.isAxiosError(err)) {
+      // if axios abort on timeout, print message
+      if (axios.isCancel(err)) {
+        console.log('Request timeout');
+      } else if (axios.isAxiosError(err)) {
+        // if axios error, manage message
         setError(`${err.response?.data.message}`);
       } else {
+        // if normal error, print it
         setError(`Api Error: ${err}`);
       }
     } finally {
-      setLoading(false);
+      setIsLoading(false);
     }
   }, []);
 
-  return { data, error, loading, fetchData };
+  return { data, error, isLoading, apiWrapper };
 };
 
 export default useAxios;
