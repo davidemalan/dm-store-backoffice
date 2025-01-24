@@ -3,6 +3,7 @@ import { useCallback, useState } from 'react';
 
 import { AxiosFunction, UseAxiosResponse } from '../types/axios';
 
+// generic function to wrap api calls in errors checks and loading
 const useAxios = <T>(): UseAxiosResponse<T> => {
   const [data, setData] = useState<T>();
   const [error, setError] = useState<string>();

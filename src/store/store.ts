@@ -6,6 +6,7 @@ import { GlobalState } from '../types/store';
 export type GlobalStore = GlobalState & ReturnType<typeof createActions>;
 export type GlobalStateAPI = ReturnType<typeof createGlobalStore>;
 
+// store actions
 const createActions = (
   set: (fn: (state: GlobalState) => GlobalState, replace: false | undefined, name: string) => void
 ) => ({
@@ -34,6 +35,7 @@ const createActions = (
     ),
 });
 
+// base store creation fn, with devtools for redux devtools debugging
 export const createGlobalStore = (initialState: GlobalState) =>
   createStore<GlobalState & ReturnType<typeof createActions>>()(
     devtools((set) => ({ ...initialState, ...createActions(set) }), {

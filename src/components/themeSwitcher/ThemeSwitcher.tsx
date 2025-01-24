@@ -15,6 +15,7 @@ const ThemeSwitcher: React.FC = () => {
 
   const [theme, setTheme] = useGlobalStore(useShallow((state) => [state.theme, state.setTheme]));
 
+  // set toggle for appereance and set theme in context
   const onToggle = () => {
     setIsToggled(!isToggled);
     setTheme(theme.name === ThemeTypes.light ? darkTheme : baseTheme);
