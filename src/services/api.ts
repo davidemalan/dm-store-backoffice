@@ -1,7 +1,7 @@
 import { AxiosRequestConfig, AxiosResponse } from 'axios';
 
 import { STORE_ID } from '../consts';
-import { NewProduct, ProductData, ProductList, Store, StoreCategoryStats } from '../types/store';
+import { NewProduct, ProductData, ProductList, Store, StoreCategoryStats } from '../types/api';
 
 import { client } from './axios';
 

@@ -17,12 +17,15 @@ export const globalStyles = css`
     -moz-osx-font-smoothing: grayscale;
   }
 
-  body {
+  // #root selector as :root pseudo element doesn't work on global styles
+  body,
+  #root {
     margin: 0;
     display: flex;
     place-items: center;
     min-width: 320px;
     min-height: 100vh;
+    width: 100%;
   }
 `;
 
@@ -30,3 +33,10 @@ export const globalStyles = css`
 export const GlobalStyles = createGlobalStyle`
     ${globalStyles}
 `;
+
+import 'styled-components';
+import { Theme } from '../types/theme';
+
+declare module 'styled-components' {
+  export interface DefaultTheme extends Theme {}
+}
