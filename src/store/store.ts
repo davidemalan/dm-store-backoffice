@@ -9,9 +9,19 @@ export type GlobalStateAPI = ReturnType<typeof createGlobalStore>;
 const createActions = (
   set: (fn: (state: GlobalState) => GlobalState, replace: false | undefined, name: string) => void
 ) => ({
-  setStore: (store: GlobalState['store']) => {
-    console.log(store);
+  setTheme: (theme: GlobalState['theme']) =>
+    set(
+      (state) => {
+        return {
+          ...state,
+          theme,
+        };
+      },
+      undefined,
+      'setStore'
+    ),
 
+  setStore: (store: GlobalState['store']) =>
     set(
       (state) => {
         return {
@@ -21,8 +31,7 @@ const createActions = (
       },
       undefined,
       'setStore'
-    );
-  },
+    ),
 });
 
 export const createGlobalStore = (initialState: GlobalState) =>
