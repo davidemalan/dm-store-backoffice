@@ -1,4 +1,12 @@
+import 'styled-components';
 import { createGlobalStyle, css } from 'styled-components';
+
+import { Theme } from '../types/theme';
+
+// type theme
+declare module 'styled-components' {
+  export interface DefaultTheme extends Theme {}
+}
 
 // create basic global style rules for all the app
 export const globalStyles = css`
@@ -33,10 +41,3 @@ export const globalStyles = css`
 export const GlobalStyles = createGlobalStyle`
     ${globalStyles}
 `;
-
-import 'styled-components';
-import { Theme } from '../types/theme';
-
-declare module 'styled-components' {
-  export interface DefaultTheme extends Theme {}
-}
