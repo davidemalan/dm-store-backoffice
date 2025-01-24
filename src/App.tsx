@@ -1,29 +1,28 @@
-import { useEffect } from 'react';
+import React, { useRef } from 'react';
 
-import useAxios from './hooks/useAxios';
-import { getStoreById } from './services/api';
+import GlobalAppContainer from './components/global-app-container/GlobalAppContainer';
+import { GlobalStoreContext } from './store/context';
+import { useGlobalStoreInstance } from './store/hooks';
+import { GlobalStyles } from './styles/global';
+import { GlobalState } from './types/store';
 
 const App: React.FC = () => {
-  const { data, error, isLoading, apiWrapper } = useAxios();
+  const initialAppRef = useRef<GlobalState>();
 
-  useEffect(() => {
-    console.log('loading', isLoading);
-  }, [isLoading]);
+  // Initialize the app state only once
+  if (!initialAppRef.current) {
+    initialAppRef.current = {};
+  }
 
-  useEffect(() => {
-    console.log('data', data);
-  }, [data]);
+  // instance for context provider
+  const globalStore = useGlobalStoreInstance(initialAppRef.current);
 
-  useEffect(() => {
-    apiWrapper(getStoreById);
-    // apiWrapper(() => getProductById('blallo'));
-  }, [apiWrapper]);
-
-  if (isLoading) return <>loading...</>;
-
-  if (error) return <>{error}</>;
-
-  return <>pippo</>;
+  return (
+    <GlobalStoreContext.Provider value={globalStore}>
+      <GlobalStyles />
+      <GlobalAppContainer />
+    </GlobalStoreContext.Provider>
+  );
 };
 
 export default App;

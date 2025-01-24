@@ -4,8 +4,8 @@ import { useCallback, useState } from 'react';
 import { AxiosFunction, UseAxiosResponse } from '../types/axios';
 
 const useAxios = <T>(): UseAxiosResponse<T> => {
-  const [data, setData] = useState<T | null>(null);
-  const [error, setError] = useState<string | null>(null);
+  const [data, setData] = useState<T>();
+  const [error, setError] = useState<string>();
   const [isLoading, setIsLoading] = useState(false);
 
   // useCallback in order to avoid rerendering infinite loops
