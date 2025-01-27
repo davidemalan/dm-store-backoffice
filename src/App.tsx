@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 
-import GlobalAppContainer from './components/global-app-container/GlobalAppContainer';
+import GlobalAppContainer from './components/globalAppContainer/GlobalAppContainer';
 import { GlobalStoreContext } from './store/context';
 import { useGlobalStoreInstance } from './store/hooks';
 import { GlobalStyles } from './styles/global';

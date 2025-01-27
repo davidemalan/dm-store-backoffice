@@ -1,15 +1,18 @@
-import { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { Route, BrowserRouter, Routes } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { useShallow } from 'zustand/shallow';
 
 import useAxios from '../../hooks/useAxios';
+import Products from '../../pages/Products';
+import Stats from '../../pages/Stats';
 import { getStoreById } from '../../services/api';
 import { useGlobalStore } from '../../store/hooks';
 import { Store } from '../../types/api';
 import Loader from '../loader/Loader';
-import ThemeSwitcher from '../themeSwitcher/ThemeSwitcher';
 
 const GlobalAppContainer: React.FC = () => {
+  const [hasData, setHasData] = useState(false);
   const { data: storeData, error, isLoading, apiWrapper } = useAxios<Store>();
 
   // get store values and fn
@@ -25,13 +28,38 @@ const GlobalAppContainer: React.FC = () => {
   useEffect(() => {
     if (storeData && storeData !== store) {
       setStore(storeData);
+
+      if (!hasData) setHasData(true);
     }
-  }, [setStore, store, storeData]);
+  }, [hasData, setStore, store, storeData]);
 
   // if loading show loader
   if (error) return <>{error}</>;
 
-  return <ThemeProvider theme={theme}>{isLoading ? <Loader /> : <ThemeSwitcher />}</ThemeProvider>;
+  return (
+    <ThemeProvider theme={theme}>
+      {!hasData || isLoading ? (
+        <Loader />
+      ) : (
+        <BrowserRouter basename="/dm-store-backoffice">
+          <Routes>
+            <Route
+              path="/"
+              element={<Products />}
+            />
+            <Route
+              path="/products"
+              element={<Products />}
+            />
+            <Route
+              path="/stats"
+              element={<Stats />}
+            />
+          </Routes>
+        </BrowserRouter>
+      )}
+    </ThemeProvider>
+  );
 };
 
-export default GlobalAppContainer;
+export default React.memo(GlobalAppContainer);
