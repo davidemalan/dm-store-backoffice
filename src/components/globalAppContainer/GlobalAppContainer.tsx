@@ -5,8 +5,8 @@ import { useShallow } from 'zustand/shallow';
 
 import useAxios from '../../hooks/useAxios';
 import Layout from '../../layouts/BaseLayout';
-import Products from '../../pages/Products';
-import Stats from '../../pages/Stats';
+import Products from '../../routes/Products';
+import Stats from '../../routes/Stats';
 import { getStoreById } from '../../services/api';
 import { useGlobalStore } from '../../store/hooks';
 import { Store } from '../../types/api';
@@ -44,20 +44,32 @@ const GlobalAppContainer: React.FC = () => {
       ) : (
         <>
           <BrowserRouter basename="/dm-store-backoffice">
-            <Layout />
             <Routes>
               <Route
-                path="/products"
-                element={<Products />}
-              />
-              <Route
-                path="/stats"
-                element={<Stats />}
-              />
-              <Route
-                path="*"
-                element={<Products />}
-              />
+                path="/"
+                element={<Layout />}
+              >
+                {/* base to products */}
+                <Route
+                  path="/"
+                  element={<Products />}
+                />
+                {/* products */}
+                <Route
+                  path="/products"
+                  element={<Products />}
+                />
+                {/* stats */}
+                <Route
+                  path="/stats"
+                  element={<Stats />}
+                />
+                {/* fallback */}
+                <Route
+                  path="*"
+                  element={<Products />}
+                />
+              </Route>
             </Routes>
           </BrowserRouter>
         </>

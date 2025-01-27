@@ -30,7 +30,7 @@ export const globalStyles = css`
   #root {
     margin: 0;
     display: flex;
-    place-items: center;
+    justify-content: center;
     min-width: 320px;
     min-height: 100vh;
     width: 100%;
