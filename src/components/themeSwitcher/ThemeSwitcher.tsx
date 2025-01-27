@@ -22,7 +22,7 @@ const ThemeSwitcher: React.FC = () => {
   };
 
   return (
-    <div>
+    <Styled.SwitcherContainer>
       <Sun />
 
       <Styled.SwitcherWrapper>
@@ -37,7 +37,7 @@ const ThemeSwitcher: React.FC = () => {
       </Styled.SwitcherWrapper>
 
       <Moon />
-    </div>
+    </Styled.SwitcherContainer>
   );
 };
 

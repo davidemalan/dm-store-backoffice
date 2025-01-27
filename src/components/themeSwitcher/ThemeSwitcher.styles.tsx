@@ -1,5 +1,8 @@
 import { styled } from 'styled-components';
 
+const SwitcherContainer = styled.section`
+  display: flex;
+`;
 const SwitcherWrapper = styled.label`
   width: 50px;
   height: 25px;
@@ -39,6 +42,7 @@ const Switch = styled.span`
 `;
 
 export default {
+  SwitcherContainer,
   SwitcherWrapper,
   Switch,
 };

@@ -3,6 +3,11 @@ import { createStyledBreakpointsTheme } from 'styled-breakpoints';
 export interface Theme extends ReturnType<typeof createStyledBreakpointsTheme> {
   name: string;
   primary: string;
+  accent: string;
+  sidebar: {
+    bg: string;
+    fg: string;
+  };
   switch: {
     bg: string;
     fg: string;

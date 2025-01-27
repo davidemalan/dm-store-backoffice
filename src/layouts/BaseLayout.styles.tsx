@@ -4,11 +4,6 @@ const LayoutWrapper = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
-  flex-direction: column;
-
-  ${({ theme }) => theme.breakpoints.up('lg')} {
-    flex-direction: row;
-  }
 `;
 
 const MainContainer = styled.main`

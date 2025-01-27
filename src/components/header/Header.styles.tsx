@@ -2,16 +2,27 @@ import { Link } from 'react-router';
 import { styled } from 'styled-components';
 
 const HeaderWrapper = styled.header`
-  width: 100%;
+  height: 100%;
   display: flex;
+  flex-direction: column;
   gap: 50px;
   padding: 20px;
-  justify-content: space-between;
+  background-color: ${({ theme }) => theme.sidebar.bg};
+  color: ${({ theme }) => theme.sidebar.fg};
 `;
 
 const LinksWrapper = styled.ul`
   display: flex;
-  gap: 10px;
+  flex-direction: column;
+  gap: 20px;
+
+  a {
+    border-bottom: 2px solid transparent;
+
+    &:hover {
+      border-color: ${({ theme }) => theme.accent};
+    }
+  }
 `;
 
 const RouterLink = styled(Link)`

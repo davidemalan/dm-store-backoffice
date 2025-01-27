@@ -18,6 +18,11 @@ export const theme = createStyledBreakpointsTheme({
 export const baseTheme: Theme = {
   name: ThemeTypes.light,
   primary: 'blue',
+  accent: 'aqua',
+  sidebar: {
+    bg: '#b6b6b6',
+    fg: '#000000',
+  },
   switch: {
     bg: '#b6b6b6',
     fg: '#ffffff',
