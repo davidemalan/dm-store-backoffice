@@ -9,6 +9,7 @@ const BaseLayout: React.FC = () => {
   return (
     <Styled.LayoutWrapper>
       <Sidebar />
+
       <Styled.MainContainer>
         <Outlet />
       </Styled.MainContainer>

@@ -7,11 +7,14 @@ import Styled from './Sidebar.styles';
 const Sidebar: React.FC = () => {
   return (
     <Styled.SidebarWrapper>
+      {/* Logo */}
       <Link to="/">
         <Styled.LogoContainer>
           DM <br /> Store
         </Styled.LogoContainer>
       </Link>
+
+      {/* router navs */}
       <nav>
         <Styled.LinksWrapper>
           <li>
@@ -22,6 +25,8 @@ const Sidebar: React.FC = () => {
           </li>
         </Styled.LinksWrapper>
       </nav>
+
+      {/* Switcher */}
       <ThemeSwitcher />
     </Styled.SidebarWrapper>
   );
