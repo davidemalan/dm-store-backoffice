@@ -3106,6 +3106,11 @@ strip-outer@^1.0.1:
   dependencies:
     escape-string-regexp "^1.0.2"
 
+styled-breakpoints@^14.1.4:
+  version "14.1.4"
+  resolved "https://registry.yarnpkg.com/styled-breakpoints/-/styled-breakpoints-14.1.4.tgz#895feba4e3f4d7e0dc2ccacfc74207a60c264082"
+  integrity sha512-/GJZM53E2gihEYYNQyfSRNSrNcuDN49r9KpN8F4tUC+13IafCtQ9y1lIYLNd2LfnhqcNFi+58Xfag798/zYGdA==
+
 styled-components@^6.1.14:
   version "6.1.14"
   resolved "https://registry.yarnpkg.com/styled-components/-/styled-components-6.1.14.tgz#addd3b645f400f8aad84c992afec58804ad1d217"

@@ -5,6 +5,10 @@ const LayoutWrapper = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
+
+  ${({ theme }) => theme.breakpoints.up('lg')} {
+    flex-direction: row;
+  }
 `;
 
 const MainContainer = styled.main`

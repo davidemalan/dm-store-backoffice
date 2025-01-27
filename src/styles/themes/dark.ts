@@ -1,7 +1,10 @@
 import { Theme, ThemeTypes } from '../../types/theme';
 
+import { baseTheme } from './base';
+
 // dark theme
 export const darkTheme: Theme = {
+  ...baseTheme,
   name: ThemeTypes.dark,
   primary: 'red',
   switch: {
