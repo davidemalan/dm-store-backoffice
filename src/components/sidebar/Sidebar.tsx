@@ -10,7 +10,7 @@ const Sidebar: React.FC = () => {
       {/* Logo */}
       <Link to="/">
         <Styled.LogoContainer>
-          DM <br /> Store
+          DM <br /> STORE
         </Styled.LogoContainer>
       </Link>
 

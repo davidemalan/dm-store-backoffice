@@ -15,7 +15,8 @@ const LoaderWrapper = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
-  place-content: center;
+  justify-content: center;
+  align-items: center;
 `;
 
 const Loader = styled.div`

@@ -8,8 +8,10 @@ import Styled from './BaseLayout.styles';
 const BaseLayout: React.FC = () => {
   return (
     <Styled.LayoutWrapper>
+      {/* Sidebar */}
       <Sidebar />
 
+      {/* Right content route */}
       <Styled.MainContainer>
         <Outlet />
       </Styled.MainContainer>

@@ -13,7 +13,6 @@ import { Store } from '../../types/api';
 import Loader from '../loader/Loader';
 
 const GlobalAppContainer: React.FC = () => {
-  const [hasData, setHasData] = useState(false);
   const { data: storeData, error, isLoading, apiWrapper } = useAxios<Store>();
 
   // get store values and fn
@@ -29,17 +28,15 @@ const GlobalAppContainer: React.FC = () => {
   useEffect(() => {
     if (storeData && storeData !== store) {
       setStore(storeData);
-
-      if (!hasData) setHasData(true);
     }
-  }, [hasData, setStore, store, storeData]);
+  }, [setStore, store, storeData]);
 
   // if loading show loader
   if (error) return <>{error}</>;
 
   return (
     <ThemeProvider theme={theme}>
-      {!hasData || isLoading ? (
+      {!storeData || isLoading ? (
         <Loader />
       ) : (
         <>
