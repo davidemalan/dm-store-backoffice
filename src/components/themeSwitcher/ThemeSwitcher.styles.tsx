@@ -25,7 +25,7 @@ const Switch = styled.span`
   &:before {
     position: absolute;
     content: '';
-    left: 2px;
+    left: 4px;
     top: 2px;
     width: 21px;
     height: 21px;

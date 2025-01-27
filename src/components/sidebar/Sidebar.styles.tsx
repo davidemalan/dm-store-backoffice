@@ -11,6 +11,12 @@ const SidebarWrapper = styled.section`
   color: ${({ theme }) => theme.sidebar.fg};
 `;
 
+const LogoLink = styled(Link)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
 const LinksWrapper = styled.ul`
   display: flex;
   flex-direction: column;
@@ -38,6 +44,7 @@ const RouterLink = styled(Link)`
 
 export default {
   SidebarWrapper,
+  LogoLink,
   LinksWrapper,
   LogoContainer,
   RouterLink,

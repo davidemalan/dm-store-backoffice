@@ -4,6 +4,10 @@ export interface Theme extends ReturnType<typeof createStyledBreakpointsTheme> {
   name: string;
   primary: string;
   accent: string;
+  main: {
+    bg: string;
+    fg: string;
+  };
   sidebar: {
     bg: string;
     fg: string;

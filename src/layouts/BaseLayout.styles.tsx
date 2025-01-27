@@ -12,6 +12,11 @@ const MainContainer = styled.main`
   display: flex;
   flex-direction: column;
   padding: 20px;
+  background-color: ${({ theme }) => theme.main.bg};
+  color: ${({ theme }) => theme.main.fg};
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 `;
 
 export default {

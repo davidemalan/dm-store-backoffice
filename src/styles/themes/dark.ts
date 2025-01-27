@@ -7,7 +7,11 @@ export const darkTheme: Theme = {
   ...baseTheme,
   name: ThemeTypes.dark,
   primary: 'red',
-  accent: 'aqua',
+  accent: '#BF4F74',
+  main: {
+    bg: '#000000',
+    fg: '#ffffff',
+  },
   sidebar: {
     bg: '#b6b6b6',
     fg: '#000000',
