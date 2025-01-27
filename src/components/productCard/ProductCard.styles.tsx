@@ -15,31 +15,41 @@ const CardHeader = styled.div`
 
 const ReviewList = styled.blockquote`
   font-size: 14px;
-  width: 60%;
-  margin: 50px auto;
+
+  font-family: Open Sans;
+  margin: 20px;
   font-style: italic;
   color: #555555;
-  padding: 12px 30px 12px 75px;
+  padding: 12px 30px 12px 50px;
   border-left: 8px solid #78c0a8;
+  border-radius: 4px;
   position: relative;
   background: #ededed;
-  font-style: italic;
+  quotes: '“' '”';
 
-  &:before {
+  ${({ theme }) => theme.breakpoints.up('lg')} {
+    width: 40%;
+  }
+
+  &::before {
     font-family: Arial;
-    content: '\201C';
+    content: open-quote;
     color: #78c0a8;
-    font-size: 4em;
+    font-size: 64px;
     position: absolute;
     left: 10px;
     top: -10px;
+  }
+
+  p {
+    margin: 2px 0;
   }
 `;
 
 const CardFooter = styled.div`
   display: flex;
   align-items: center;
-  gap: 150px;
+  gap: 100px;
 `;
 
 const CategoryTag = styled.span`

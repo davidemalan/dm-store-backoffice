@@ -16,12 +16,14 @@ const ProductCard: React.FC<ProductCardProps> = ({ title, category, price, emplo
         <h2>{title}</h2>
         <h4>{`${price}€`}</h4>
       </Styled.CardHeader>
-      <div>{description}</div>
-      <Styled.ReviewList>
-        {reviews.map((review, i) => (
-          <p key={`review_${i}`}>{review}</p>
-        ))}
-      </Styled.ReviewList>
+      <p>{description}</p>
+      {reviews.length && (
+        <Styled.ReviewList>
+          {reviews.map((review, i) => (
+            <p key={`review_${i}`}>{review}</p>
+          ))}
+        </Styled.ReviewList>
+      )}
       <Styled.CardFooter>
         <span>{employee}</span>
         <Styled.CategoryTag>{category}</Styled.CategoryTag>
