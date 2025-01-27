@@ -1,24 +1,24 @@
 import { Link } from 'react-router';
 
+import ThemeSwitcher from '../themeSwitcher/ThemeSwitcher';
+
 import Styled from './Header.styles';
 
 const Header: React.FC = () => {
   return (
     <Styled.HeaderWrapper>
-      <h1>My App</h1>
+      <Link to="/">DM Store</Link>
       <nav>
-        <ul>
+        <Styled.LinksWrapper>
           <li>
-            <Link to="/">Home</Link>
+            <Styled.RouterLink to="/products">Products</Styled.RouterLink>
           </li>
           <li>
-            <Link to="/products">Products</Link>
+            <Styled.RouterLink to="/stats">Stats</Styled.RouterLink>
           </li>
-          <li>
-            <Link to="/stats">Stats</Link>
-          </li>
-        </ul>
+        </Styled.LinksWrapper>
       </nav>
+      <ThemeSwitcher />
     </Styled.HeaderWrapper>
   );
 };

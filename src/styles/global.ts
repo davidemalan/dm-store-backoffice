@@ -35,6 +35,21 @@ export const globalStyles = css`
     min-height: 100vh;
     width: 100%;
   }
+
+  a {
+    color: currentColor;
+    text-decoration: none;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  p {
+    margin-top: 0;
+  }
 `;
 
 // export global style component
