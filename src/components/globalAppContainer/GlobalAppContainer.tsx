@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Route, BrowserRouter, Routes } from 'react-router-dom';
+import { Route, BrowserRouter, Routes } from 'react-router';
 import { ThemeProvider } from 'styled-components';
 import { useShallow } from 'zustand/shallow';
 
 import useAxios from '../../hooks/useAxios';
+import Layout from '../../layouts/BaseLayout';
 import Products from '../../pages/Products';
 import Stats from '../../pages/Stats';
 import { getStoreById } from '../../services/api';
@@ -41,22 +42,25 @@ const GlobalAppContainer: React.FC = () => {
       {!hasData || isLoading ? (
         <Loader />
       ) : (
-        <BrowserRouter basename="/dm-store-backoffice">
-          <Routes>
-            <Route
-              path="/"
-              element={<Products />}
-            />
-            <Route
-              path="/products"
-              element={<Products />}
-            />
-            <Route
-              path="/stats"
-              element={<Stats />}
-            />
-          </Routes>
-        </BrowserRouter>
+        <>
+          <BrowserRouter basename="/dm-store-backoffice">
+            <Layout />
+            <Routes>
+              <Route
+                path="/products"
+                element={<Products />}
+              />
+              <Route
+                path="/stats"
+                element={<Stats />}
+              />
+              <Route
+                path="*"
+                element={<Products />}
+              />
+            </Routes>
+          </BrowserRouter>
+        </>
       )}
     </ThemeProvider>
   );

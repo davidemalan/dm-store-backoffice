@@ -7,5 +7,6 @@ export const client: AxiosInstance = axios.create({
   baseURL: API_BASE_URL,
   headers: { Accept: 'application/json' },
   // abort after 10s pending
-  signal: AbortSignal.timeout(10000),
+  // commented as when switching tab goes automatically in timeout
+  // signal: AbortSignal.timeout(10000),
 });
