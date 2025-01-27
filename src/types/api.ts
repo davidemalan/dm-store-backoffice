@@ -22,7 +22,7 @@ export interface Product {
 export interface ProductData {
   title: string;
   category: string;
-  price: 0;
+  price: number;
   employee: string;
   description: string;
   reviews: string[];

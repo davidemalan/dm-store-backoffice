@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 
+import ProductCard from '../components/productCard/ProductCard';
 import useAxios from '../hooks/useAxios';
 import { getProducts } from '../services/api';
 import { ProductList } from '../types/api';
@@ -17,7 +18,19 @@ const Products: React.FC = () => {
       {error ? (
         <>error retrieving Products data: {error}</>
       ) : (
-        productsData?.list.map(({ id, data }) => <li key={id}>{data.title}</li>)
+        <ul>
+          {productsData?.list.map(({ id, data }) => (
+            <ProductCard
+              key={`productCard_${id}`}
+              title={data.title}
+              category={data.category}
+              price={data.price}
+              employee={data.employee}
+              description={data.description}
+              reviews={data.reviews}
+            />
+          ))}
+        </ul>
       )}
     </div>
   );
