@@ -1,7 +1,7 @@
 import { Link } from 'react-router';
 import { styled } from 'styled-components';
 
-const HeaderWrapper = styled.header`
+const SidebarWrapper = styled.section`
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -15,23 +15,30 @@ const LinksWrapper = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 20px;
+`;
 
-  a {
-    border-bottom: 2px solid transparent;
-
-    &:hover {
-      border-color: ${({ theme }) => theme.accent};
-    }
-  }
+const LogoContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  font-weight: bold;
+  font-size: 22px;
 `;
 
 const RouterLink = styled(Link)`
   font-size: 18px;
-  font-weight: bold;
+  border-bottom: 2px solid transparent;
+
+  &:hover {
+    font-weight: bold;
+    border-color: ${({ theme }) => theme.accent};
+  }
 `;
 
 export default {
-  HeaderWrapper,
+  SidebarWrapper,
   LinksWrapper,
+  LogoContainer,
   RouterLink,
 };

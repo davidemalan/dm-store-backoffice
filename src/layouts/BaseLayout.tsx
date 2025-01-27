@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router';
 
-import Header from '../components/header/Header';
+import Sidebar from '../components/sidebar/Sidebar';
 
 import Styled from './BaseLayout.styles';
 
@@ -8,7 +8,7 @@ import Styled from './BaseLayout.styles';
 const BaseLayout: React.FC = () => {
   return (
     <Styled.LayoutWrapper>
-      <Header />
+      <Sidebar />
       <Styled.MainContainer>
         <Outlet />
       </Styled.MainContainer>

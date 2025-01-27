@@ -2,12 +2,16 @@ import { Link } from 'react-router';
 
 import ThemeSwitcher from '../themeSwitcher/ThemeSwitcher';
 
-import Styled from './Header.styles';
+import Styled from './Sidebar.styles';
 
-const Header: React.FC = () => {
+const Sidebar: React.FC = () => {
   return (
-    <Styled.HeaderWrapper>
-      <Link to="/">DM Store</Link>
+    <Styled.SidebarWrapper>
+      <Link to="/">
+        <Styled.LogoContainer>
+          DM <br /> Store
+        </Styled.LogoContainer>
+      </Link>
       <nav>
         <Styled.LinksWrapper>
           <li>
@@ -19,8 +23,8 @@ const Header: React.FC = () => {
         </Styled.LinksWrapper>
       </nav>
       <ThemeSwitcher />
-    </Styled.HeaderWrapper>
+    </Styled.SidebarWrapper>
   );
 };
 
-export default Header;
+export default Sidebar;

@@ -47,6 +47,10 @@ export const globalStyles = css`
     margin: 0;
   }
 
+  li {
+    list-style-type: none;
+  }
+
   p {
     margin-top: 0;
   }
