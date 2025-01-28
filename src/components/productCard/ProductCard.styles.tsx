@@ -7,7 +7,7 @@ const CardContainer = styled.li`
   margin-bottom: 20px;
   background-color: #a3a3a3;
   padding: 20px;
-  max-width: 500px;
+  border-radius: 8px;
 
   ${({ theme }) => theme.breakpoints.up('lg')} {
   }
@@ -21,6 +21,7 @@ const CardHeader = styled.div`
 `;
 
 const ReviewList = styled.blockquote`
+  max-width: 500px;
   font-size: 14px;
   font-family: Open Sans;
   margin: 20px;
