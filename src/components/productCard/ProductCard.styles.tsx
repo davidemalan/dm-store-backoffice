@@ -5,17 +5,23 @@ const CardContainer = styled.li`
   justify-content: center;
   align-items: center;
   margin-bottom: 20px;
+  background-color: #a3a3a3;
+  padding: 20px;
+  max-width: 500px;
+
+  ${({ theme }) => theme.breakpoints.up('lg')} {
+  }
 `;
 
 const CardHeader = styled.div`
   display: flex;
   align-items: center;
   gap: 20px;
+  margin-bottom: 8px;
 `;
 
 const ReviewList = styled.blockquote`
   font-size: 14px;
-
   font-family: Open Sans;
   margin: 20px;
   font-style: italic;
@@ -26,10 +32,6 @@ const ReviewList = styled.blockquote`
   position: relative;
   background: #ededed;
   quotes: '“' '”';
-
-  ${({ theme }) => theme.breakpoints.up('lg')} {
-    width: 40%;
-  }
 
   &::before {
     font-family: Arial;
