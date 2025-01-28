@@ -10,20 +10,30 @@ interface ProductCardProps {
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ title, category, price, employee, description, reviews }) => {
+  // remove void reviews
+  const validReviews = reviews.filter((review) => !!review);
+
   return (
     <Styled.CardContainer>
+      {/* Card top */}
       <Styled.CardHeader>
         <h2>{title}</h2>
         <h4>{`${price}€`}</h4>
       </Styled.CardHeader>
+
+      {/* Card description */}
       <p>{description}</p>
-      {reviews.length && (
+
+      {/* Card reviews */}
+      {!!validReviews.length && (
         <Styled.ReviewList>
-          {reviews.map((review, i) => (
+          {validReviews.map((review, i) => (
             <p key={`review_${i}`}>{review}</p>
           ))}
         </Styled.ReviewList>
       )}
+
+      {/* Card bottom */}
       <Styled.CardFooter>
         <span>{employee}</span>
         <Styled.CategoryTag>{category}</Styled.CategoryTag>
