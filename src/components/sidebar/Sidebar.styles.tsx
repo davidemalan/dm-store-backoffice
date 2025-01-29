@@ -9,6 +9,8 @@ const SidebarWrapper = styled.section`
   padding: 20px;
   background-color: ${({ theme }) => theme.sidebar.bg};
   color: ${({ theme }) => theme.sidebar.fg};
+  position: fixed;
+  width: 140px;
 `;
 
 const LogoLink = styled(Link)`
