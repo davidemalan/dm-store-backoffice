@@ -10,7 +10,11 @@ import Loader from '../loader/Loader';
 
 import Styled from './ProductForm.styles';
 
-const ProductForm: FC = (): ReactElement => {
+interface ProductFormProps {
+  updateProducts: () => void;
+}
+
+const ProductForm: FC<ProductFormProps> = ({ updateProducts }): ReactElement => {
   const [errorMessage, setErrorMessage] = useState<string>();
   const [newProduct, setNewProduct] = useState({
     productId: uuidv4(),
@@ -22,8 +26,9 @@ const ProductForm: FC = (): ReactElement => {
     reviews: [''],
   });
 
-  const { error, isLoading, apiWrapper } = useAxios<string>();
+  const { data: newProductData, error, isLoading, apiWrapper } = useAxios<string>();
 
+  // on submit add product
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -95,6 +100,12 @@ const ProductForm: FC = (): ReactElement => {
       handleErrorMessage(error);
     }
   }, [error]);
+
+  useEffect(() => {
+    if (newProductData) {
+      updateProducts();
+    }
+  }, [newProductData, updateProducts]);
 
   return (
     <>

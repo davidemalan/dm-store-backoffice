@@ -20,7 +20,7 @@ export const getStoreById = (httpConfig: AxiosRequestConfig<any> = {}): Promise<
 
 /* products */
 export const getProducts = (httpConfig: AxiosRequestConfig<any> = {}): Promise<AxiosResponse<ProductList>> => {
-  const url = `/api/stores/${STORE_ID}/products`;
+  const url = `/api/stores/${STORE_ID}/products?page=1&elements=50`;
 
   return client.get(url, httpConfig);
 };

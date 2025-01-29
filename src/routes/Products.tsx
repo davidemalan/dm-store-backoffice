@@ -1,4 +1,4 @@
-import { FC, ReactElement, useEffect, useState } from 'react';
+import { FC, ReactElement, useCallback, useEffect, useState } from 'react';
 import { useShallow } from 'zustand/shallow';
 
 import Button from '../components/button/Button';
@@ -17,10 +17,17 @@ const Products: FC = (): ReactElement => {
 
   const [productList, setProducts] = useGlobalStore(useShallow((state) => [state.productList, state.setProducts]));
 
+  // useCallback in order to avoid rerendering infinite loops
+  const updateProducts = useCallback(() => {
+    apiWrapper(getProducts);
+
+    setShowModal(false);
+  }, [apiWrapper]);
+
   // get the product list
   useEffect(() => {
-    apiWrapper(getProducts);
-  }, [apiWrapper]);
+    updateProducts();
+  }, [apiWrapper, updateProducts]);
 
   // set data in store
   useEffect(() => {
@@ -56,7 +63,7 @@ const Products: FC = (): ReactElement => {
           </ul>
           {showModal && (
             <Modal closeModal={() => setShowModal(false)}>
-              <ProductForm />
+              <ProductForm updateProducts={updateProducts} />
             </Modal>
           )}
         </>
