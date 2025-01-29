@@ -28,4 +28,8 @@ export const darkTheme: Theme = {
     bg: '#ededed',
     fg: 'black',
   },
+  review: {
+    bg: '#ededed',
+    fg: 'black',
+  },
 };
