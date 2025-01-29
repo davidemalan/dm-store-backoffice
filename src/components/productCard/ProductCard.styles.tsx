@@ -68,6 +68,18 @@ const CategoryTag = styled.span`
   padding: 5px 15px;
 `;
 
+const ModalTitle = styled.h2`
+  margin-bottom: 30px;
+`;
+
+const ModalButtonGroup = styled.section`
+  margin-top: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+`;
+
 export default {
   CardWrapper,
   CardContainer,
@@ -75,4 +87,6 @@ export default {
   ReviewList,
   CardFooter,
   CategoryTag,
+  ModalTitle,
+  ModalButtonGroup,
 };
