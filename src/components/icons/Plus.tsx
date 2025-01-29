@@ -1,6 +1,6 @@
-import { ReactElement } from 'react';
+import { FC, ReactElement } from 'react';
 
-export const Plus = ({ title }: { title: string }): ReactElement => (
+export const Plus: FC<{ title: string }> = ({ title }): ReactElement => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={24}

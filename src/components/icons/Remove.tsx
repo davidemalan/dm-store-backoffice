@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { FC } from 'react';
 
-export const Remove = ({ title, color }: { title: string; color: string }): React.ReactElement => (
+export const Remove: FC<{ title: string; color: string }> = ({ title, color }): React.ReactElement => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={24}
