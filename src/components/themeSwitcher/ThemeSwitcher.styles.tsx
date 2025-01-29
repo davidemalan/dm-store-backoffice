@@ -2,6 +2,7 @@ import { styled } from 'styled-components';
 
 const SwitcherContainer = styled.section`
   display: flex;
+  gap: 2px;
 `;
 const SwitcherWrapper = styled.label`
   width: 50px;
@@ -25,7 +26,7 @@ const Switch = styled.span`
   &:before {
     position: absolute;
     content: '';
-    left: 4px;
+    left: 3px;
     top: 2px;
     width: 21px;
     height: 21px;

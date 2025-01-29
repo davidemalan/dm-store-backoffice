@@ -61,6 +61,10 @@ const CardFooter = styled.div`
   gap: 100px;
 `;
 
+const Employee = styled.span`
+  font-weight: 700;
+`;
+
 const CategoryTag = styled.span`
   display: flex;
   align-items: center;
@@ -68,6 +72,7 @@ const CategoryTag = styled.span`
   color: ${({ theme }) => theme.review.fg};
   border-radius: 25px;
   padding: 5px 15px;
+  font-weight: 500;
 `;
 
 const ModalTitle = styled.h2`
@@ -88,6 +93,7 @@ export default {
   CardHeader,
   ReviewList,
   CardFooter,
+  Employee,
   CategoryTag,
   ModalTitle,
   ModalButtonGroup,

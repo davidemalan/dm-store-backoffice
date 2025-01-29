@@ -9,15 +9,15 @@ export const darkTheme: Theme = {
   primary: 'red',
   accent: '#BF4F74',
   main: {
-    bg: '#000000',
-    fg: '#ffffff',
-  },
-  sidebar: {
     bg: '#494d55',
     fg: '#ffffff',
   },
+  sidebar: {
+    bg: '#272727',
+    fg: '#ffffff',
+  },
   switch: {
-    bg: '#BF4F74',
+    bg: '#494d55',
     fg: 'black',
   },
   button: {
@@ -25,8 +25,8 @@ export const darkTheme: Theme = {
     fg: '#ffffff',
   },
   card: {
-    bg: '#ededed',
-    fg: 'black',
+    bg: '#272727',
+    fg: '#ededed',
   },
   review: {
     bg: '#ededed',

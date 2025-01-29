@@ -104,7 +104,7 @@ const ProductCard: FC<ProductCardProps> = ({
 
           {/* Card bottom */}
           <Styled.CardFooter>
-            <span>{employee}</span>
+            <Styled.Employee>{employee}</Styled.Employee>
             <Styled.CategoryTag>{category}</Styled.CategoryTag>
           </Styled.CardFooter>
         </Styled.CardContainer>
