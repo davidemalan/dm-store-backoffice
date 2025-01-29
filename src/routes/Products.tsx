@@ -1,10 +1,10 @@
 import { FC, ReactElement, useCallback, useEffect, useState } from 'react';
 import { useShallow } from 'zustand/shallow';
 
-import Button from '../components/button/Button';
 import Modal from '../components/modal/Modal';
 import ProductCard from '../components/productCard/ProductCard';
 import ProductForm from '../components/productForm/ProductForm';
+import ProductsHeader from '../components/productsHeader/ProductsHeader';
 import useAxios from '../hooks/useAxios';
 import { getProducts } from '../services/api';
 import { useGlobalStore } from '../store/hooks';
@@ -40,14 +40,10 @@ const Products: FC = (): ReactElement => {
         <>error retrieving Products data: {error}</>
       ) : (
         <>
-          <Button
-            onClick={() => setShowModal(true)}
-            color="#fff"
-            backgroundColor="#2ecc71"
-            backgroundHoverColor="#25a85c"
-          >
-            Add new Product
-          </Button>
+          {/* heading with add button and view switcher */}
+          <ProductsHeader showModal={() => setShowModal(true)} />
+
+          {/* products */}
           <ul>
             {productList?.list.map(({ id, data }) => (
               <ProductCard
@@ -63,6 +59,8 @@ const Products: FC = (): ReactElement => {
               />
             ))}
           </ul>
+
+          {/* new product modal*/}
           {showModal && (
             <Modal closeModal={() => setShowModal(false)}>
               <ProductForm updateProducts={updateProducts} />

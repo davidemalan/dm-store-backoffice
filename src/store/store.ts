@@ -45,6 +45,18 @@ const createActions = (
       undefined,
       'setStore'
     ),
+
+  setProductsView: (productsView: GlobalState['productsView']) =>
+    set(
+      (state) => {
+        return {
+          ...state,
+          productsView,
+        };
+      },
+      undefined,
+      'setStore'
+    ),
 });
 
 // base store creation fn, with devtools for redux devtools debugging

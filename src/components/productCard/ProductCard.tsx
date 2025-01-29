@@ -110,6 +110,7 @@ const ProductCard: FC<ProductCardProps> = ({
         </Styled.CardContainer>
       </Styled.CardWrapper>
 
+      {/* confirm modal */}
       {showModal && (
         <Modal closeModal={() => setShowModal(false)}>
           <h2>You are going to delete the product:</h2>

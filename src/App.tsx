@@ -5,14 +5,14 @@ import { GlobalStoreContext } from './store/context';
 import { useGlobalStoreInstance } from './store/hooks';
 import { GlobalStyles } from './styles/global';
 import { baseTheme } from './styles/themes/base';
-import { GlobalState } from './types/store';
+import { GlobalState, ProductsView } from './types/store';
 
 const App: FC = (): ReactElement => {
   const initialAppRef = useRef<GlobalState>();
 
   // Initialize the app state only once
   if (!initialAppRef.current) {
-    initialAppRef.current = { theme: baseTheme };
+    initialAppRef.current = { theme: baseTheme, productsView: ProductsView.LIST_VIEW };
   }
 
   // instance for context provider
