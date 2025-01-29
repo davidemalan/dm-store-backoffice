@@ -1,6 +1,8 @@
 import { FC, ReactElement } from 'react';
 
 import Styled from './ProductCard.styles';
+import { Remove } from '../icons/Remove';
+import Button from '../button/Button';
 
 interface ProductCardProps {
   title: string;
@@ -22,32 +24,51 @@ const ProductCard: FC<ProductCardProps> = ({
   // remove void reviews
   const validReviews = reviews.filter((review) => !!review);
 
+  const removeProduct = () => {
+    console.log(removeProduct);
+  };
+
   return (
-    <Styled.CardContainer>
-      {/* Card top */}
-      <Styled.CardHeader>
-        <h2>{title}</h2>
-        <h4>{`${price}€`}</h4>
-      </Styled.CardHeader>
+    <Styled.CardWrapper>
+      <Styled.CardContainer>
+        {/* Card top */}
+        <Styled.CardHeader>
+          <div>
+            <h2>{title}</h2>
+            <h4>{`${price}€`}</h4>
+          </div>
+          <Button
+            backgroundColor="#cc2e2e"
+            backgroundHoverColor="#b62a2a"
+            onClick={removeProduct}
+            rounded
+          >
+            <Remove
+              title="Remove product"
+              color="#fff"
+            />
+          </Button>
+        </Styled.CardHeader>
 
-      {/* Card description */}
-      <p>{description}</p>
+        {/* Card description */}
+        <p>{description}</p>
 
-      {/* Card reviews */}
-      {!!validReviews.length && (
-        <Styled.ReviewList>
-          {validReviews.map((review, i) => (
-            <p key={`review_${i}`}>{review}</p>
-          ))}
-        </Styled.ReviewList>
-      )}
+        {/* Card reviews */}
+        {!!validReviews.length && (
+          <Styled.ReviewList>
+            {validReviews.map((review, i) => (
+              <p key={`review_${i}`}>{review}</p>
+            ))}
+          </Styled.ReviewList>
+        )}
 
-      {/* Card bottom */}
-      <Styled.CardFooter>
-        <span>{employee}</span>
-        <Styled.CategoryTag>{category}</Styled.CategoryTag>
-      </Styled.CardFooter>
-    </Styled.CardContainer>
+        {/* Card bottom */}
+        <Styled.CardFooter>
+          <span>{employee}</span>
+          <Styled.CategoryTag>{category}</Styled.CategoryTag>
+        </Styled.CardFooter>
+      </Styled.CardContainer>
+    </Styled.CardWrapper>
   );
 };
 

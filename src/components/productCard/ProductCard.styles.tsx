@@ -1,10 +1,16 @@
 import { styled } from 'styled-components';
 
-const CardContainer = styled.li`
+const CardWrapper = styled.li`
   width: 100%;
+  display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 20px;
+`;
+
+const CardContainer = styled.div`
+  width: 100%;
+  max-width: 600px;
   background-color: #a3a3a3;
   padding: 20px;
   border-radius: 8px;
@@ -13,6 +19,7 @@ const CardContainer = styled.li`
 const CardHeader = styled.div`
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 20px;
   margin-bottom: 8px;
 `;
@@ -61,6 +68,7 @@ const CategoryTag = styled.span`
 `;
 
 export default {
+  CardWrapper,
   CardContainer,
   CardHeader,
   ReviewList,
