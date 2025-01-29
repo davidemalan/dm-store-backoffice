@@ -1,5 +1,6 @@
 import React, { FC, useEffect, useState } from 'react';
 
+import Button from '../components/button/Button';
 import Modal from '../components/modal/Modal';
 import ProductCard from '../components/productCard/ProductCard';
 import useAxios from '../hooks/useAxios';
@@ -21,7 +22,14 @@ const Products: FC = (): React.ReactElement => {
         <>error retrieving Products data: {error}</>
       ) : (
         <>
-          <button onClick={() => setShowModal(true)}>Add new Product</button>
+          <Button
+            onClick={() => setShowModal(true)}
+            color="#fff"
+            backgroundColor="#2ecc71"
+            backgroundHoverColor="#25a85c"
+          >
+            Add new Product
+          </Button>
           <ul>
             {productsData?.list.map(({ id, data }) => (
               <ProductCard
