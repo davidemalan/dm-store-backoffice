@@ -1,4 +1,4 @@
-import { FC, PropsWithChildren } from 'react';
+import { FC, FormEvent, MouseEvent, PropsWithChildren, ReactElement } from 'react';
 
 import Styled from './Button.styles';
 
@@ -6,24 +6,27 @@ type ButtonProps = PropsWithChildren<{
   backgroundColor?: string;
   backgroundHoverColor?: string;
   color?: string;
-  onClick?: () => void;
+  rounded?: boolean;
+  onClick: (event: FormEvent<HTMLFormElement> | MouseEvent<HTMLButtonElement>) => void;
 }>;
 
 const Button: FC<ButtonProps> = ({
   backgroundColor,
   backgroundHoverColor,
   color,
+  rounded,
   onClick,
   children,
-}): React.ReactElement => {
+}): ReactElement => {
   return (
     <Styled.Button
       $backgroundColor={backgroundColor}
       $backgroundHoverColor={backgroundHoverColor}
       $color={color}
-      onClick={onClick}
+      $rounded={rounded}
+      onClick={(e) => onClick(e)}
     >
-      {children}
+      <Styled.ChildrenContainer>{children}</Styled.ChildrenContainer>
     </Styled.Button>
   );
 };
