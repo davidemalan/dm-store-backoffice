@@ -56,6 +56,7 @@ const ReviewList = styled.blockquote`
 const CardFooter = styled.div`
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 100px;
 `;
 

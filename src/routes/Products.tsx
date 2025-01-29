@@ -8,8 +8,9 @@ import { getProducts } from '../services/api';
 import { ProductList } from '../types/api';
 
 const Products: FC = (): ReactElement => {
-  const { data: productsData, error, apiWrapper } = useAxios<ProductList>();
   const [showModal, setShowModal] = useState(false);
+
+  const { data: productsData, error, apiWrapper } = useAxios<ProductList>();
 
   // get the product list
   useEffect(() => {

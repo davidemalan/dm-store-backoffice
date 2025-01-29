@@ -1,8 +1,9 @@
 import { FC, ReactElement } from 'react';
 
-import Styled from './ProductCard.styles';
-import { Remove } from '../icons/Remove';
 import Button from '../button/Button';
+import { Remove } from '../icons/Remove';
+
+import Styled from './ProductCard.styles';
 
 interface ProductCardProps {
   title: string;

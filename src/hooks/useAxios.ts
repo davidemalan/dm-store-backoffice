@@ -21,10 +21,11 @@ const useAxios = <T>(): UseAxiosResponse<T> => {
     } catch (err) {
       // if axios abort on timeout, print message
       if (axios.isCancel(err)) {
-        console.log('Request timeout');
-      } else if (axios.isAxiosError(err)) {
+        console.error('Request timeout');
+        setError('Request timeout');
+      } else if (axios.isAxiosError(err) && err.response) {
         // if axios error, manage message
-        setError(`${err.response?.data.message}`);
+        setError(`${err.response.data.message}`);
       } else {
         // if normal error, print it
         setError(`Api Error: ${err}`);

@@ -1,9 +1,13 @@
 import { ChangeEvent, FC, FormEvent, ReactElement, useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
+import useAxios from '../../hooks/useAxios';
+import { addProduct } from '../../services/api';
 import Button from '../button/Button';
+import ErrorMessage from '../errorMessage/ErrorMessage';
 import { Close } from '../icons/Close';
 import { Plus } from '../icons/Plus';
+import Loader from '../loader/Loader';
 
 import Styled from './Modal.styles';
 
@@ -12,6 +16,7 @@ interface ModalProps {
 }
 
 const Modal: FC<ModalProps> = ({ closeModal }): ReactElement => {
+  const [errorMessage, setErrorMessage] = useState<string>();
   const [newProduct, setNewProduct] = useState({
     productId: uuidv4(),
     title: '',
@@ -22,10 +27,31 @@ const Modal: FC<ModalProps> = ({ closeModal }): ReactElement => {
     reviews: [''],
   });
 
+  const { error, isLoading, apiWrapper } = useAxios<string>();
+
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    console.log('handleSubmit', newProduct);
+    if (
+      !newProduct.title ||
+      !newProduct.category ||
+      !newProduct.price ||
+      !newProduct.employee ||
+      !newProduct.description
+    ) {
+      handleErrorMessage('missing product properties');
+    } else {
+      apiWrapper(() => addProduct(newProduct));
+    }
+  };
+
+  // on error show message for 2 sec
+  const handleErrorMessage = (message: string) => {
+    setErrorMessage(message);
+
+    setTimeout(() => {
+      setErrorMessage(undefined);
+    }, 2000);
   };
 
   // on change input update state based on input name
@@ -75,6 +101,12 @@ const Modal: FC<ModalProps> = ({ closeModal }): ReactElement => {
       document.body.style.overflowY = 'unset';
     };
   }, []);
+
+  useEffect(() => {
+    if (error) {
+      handleErrorMessage(error);
+    }
+  }, [error]);
 
   return (
     <Styled.Modal>
@@ -160,13 +192,19 @@ const Modal: FC<ModalProps> = ({ closeModal }): ReactElement => {
           </section>
 
           {/* submit input not Button for accessibility */}
-          <section>
-            <Styled.SubmitButton
-              type="submit"
-              value="Add Product"
-            />
-          </section>
+          {isLoading ? (
+            <Loader />
+          ) : (
+            <section>
+              <Styled.SubmitButton
+                type="submit"
+                value="Add Product"
+              />
+            </section>
+          )}
         </form>
+
+        {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
       </Styled.Card>
     </Styled.Modal>
   );
