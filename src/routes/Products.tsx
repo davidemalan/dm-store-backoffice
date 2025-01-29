@@ -3,6 +3,7 @@ import { FC, ReactElement, useEffect, useState } from 'react';
 import Button from '../components/button/Button';
 import Modal from '../components/modal/Modal';
 import ProductCard from '../components/productCard/ProductCard';
+import ProductForm from '../components/productForm/ProductForm';
 import useAxios from '../hooks/useAxios';
 import { getProducts } from '../services/api';
 import { ProductList } from '../types/api';
@@ -44,7 +45,11 @@ const Products: FC = (): ReactElement => {
               />
             ))}
           </ul>
-          {showModal && <Modal closeModal={() => setShowModal(false)} />}
+          {showModal && (
+            <Modal closeModal={() => setShowModal(false)}>
+              <ProductForm />
+            </Modal>
+          )}
         </>
       )}
     </div>
