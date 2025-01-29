@@ -1,4 +1,5 @@
 import { FC, ReactElement, useEffect, useState } from 'react';
+import { useShallow } from 'zustand/shallow';
 
 import Button from '../components/button/Button';
 import Modal from '../components/modal/Modal';
@@ -6,6 +7,7 @@ import ProductCard from '../components/productCard/ProductCard';
 import ProductForm from '../components/productForm/ProductForm';
 import useAxios from '../hooks/useAxios';
 import { getProducts } from '../services/api';
+import { useGlobalStore } from '../store/hooks';
 import { ProductList } from '../types/api';
 
 const Products: FC = (): ReactElement => {
@@ -13,10 +15,17 @@ const Products: FC = (): ReactElement => {
 
   const { data: productsData, error, apiWrapper } = useAxios<ProductList>();
 
+  const [productList, setProducts] = useGlobalStore(useShallow((state) => [state.productList, state.setProducts]));
+
   // get the product list
   useEffect(() => {
     apiWrapper(getProducts);
   }, [apiWrapper]);
+
+  // set data in store
+  useEffect(() => {
+    setProducts(productsData);
+  }, [productsData, setProducts]);
 
   return (
     <div>
@@ -33,7 +42,7 @@ const Products: FC = (): ReactElement => {
             Add new Product
           </Button>
           <ul>
-            {productsData?.list.map(({ id, data }) => (
+            {productList?.list.map(({ id, data }) => (
               <ProductCard
                 key={`productCard_${id}`}
                 title={data.title}
