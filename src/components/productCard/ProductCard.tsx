@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, ReactElement } from 'react';
 
 import Styled from './ProductCard.styles';
 
@@ -18,7 +18,7 @@ const ProductCard: FC<ProductCardProps> = ({
   employee,
   description,
   reviews,
-}): React.ReactElement => {
+}): ReactElement => {
   // remove void reviews
   const validReviews = reviews.filter((review) => !!review);
 

@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, ReactElement } from 'react';
 import { Outlet } from 'react-router';
 
 import Sidebar from '../components/sidebar/Sidebar';
@@ -6,7 +6,7 @@ import Sidebar from '../components/sidebar/Sidebar';
 import Styled from './BaseLayout.styles';
 
 // base layout with outlet for routes
-const BaseLayout: FC = (): React.ReactElement => {
+const BaseLayout: FC = (): ReactElement => {
   return (
     <Styled.LayoutWrapper>
       {/* Sidebar */}

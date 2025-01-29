@@ -1,6 +1,6 @@
-import { FC } from 'react';
+import { FC, ReactElement } from 'react';
 
-export const Moon: FC = (): React.ReactElement => {
+export const Moon: FC = (): ReactElement => {
   return (
     <svg
       viewBox="0 0 24 24"

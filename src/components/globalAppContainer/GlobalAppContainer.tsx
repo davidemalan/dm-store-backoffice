@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react';
+import { FC, memo, ReactElement, useEffect } from 'react';
 import { Route, BrowserRouter, Routes } from 'react-router';
 import { ThemeProvider } from 'styled-components';
 import { useShallow } from 'zustand/shallow';
@@ -12,7 +12,7 @@ import { useGlobalStore } from '../../store/hooks';
 import { Store } from '../../types/api';
 import Loader from '../loader/Loader';
 
-const GlobalAppContainer: FC = (): React.ReactElement => {
+const GlobalAppContainer: FC = (): ReactElement => {
   const { data: storeData, error, isLoading, apiWrapper } = useAxios<Store>();
 
   // get store values and fn
@@ -75,4 +75,4 @@ const GlobalAppContainer: FC = (): React.ReactElement => {
   );
 };
 
-export default React.memo(GlobalAppContainer);
+export default memo(GlobalAppContainer);

@@ -1,11 +1,11 @@
-import { FC } from 'react';
+import { FC, ReactElement } from 'react';
 
 import logo from '../../assets/logo.png';
 import ThemeSwitcher from '../themeSwitcher/ThemeSwitcher';
 
 import Styled from './Sidebar.styles';
 
-const Sidebar: FC = (): React.ReactElement => {
+const Sidebar: FC = (): ReactElement => {
   return (
     <Styled.SidebarWrapper>
       {/* Logo */}
