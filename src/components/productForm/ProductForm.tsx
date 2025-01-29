@@ -47,8 +47,6 @@ const ProductForm: FC<ProductFormProps> = ({ updateProducts }): ReactElement => 
 
   // on error show message for 2 sec
   const handleErrorMessage = (message: string) => {
-    console.log(message);
-
     setErrorMessage(message);
 
     setTimeout(() => {
@@ -196,6 +194,7 @@ const ProductForm: FC<ProductFormProps> = ({ updateProducts }): ReactElement => 
         )}
       </form>
 
+      {/* error message pop up */}
       {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
     </>
   );

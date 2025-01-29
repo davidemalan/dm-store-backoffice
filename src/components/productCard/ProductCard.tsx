@@ -1,38 +1,71 @@
-import { FC, ReactElement, useState } from 'react';
+import { FC, ReactElement, useEffect, useState } from 'react';
 
+import useAxios from '../../hooks/useAxios';
+import { deleteProduct } from '../../services/api';
 import Button from '../button/Button';
+import ErrorMessage from '../errorMessage/ErrorMessage';
 import { Remove } from '../icons/Remove';
+import Loader from '../loader/Loader';
 import Modal from '../modal/Modal';
 
 import Styled from './ProductCard.styles';
 
 interface ProductCardProps {
+  id: string;
   title: string;
   category: string;
   price: number;
   employee: string;
   description: string;
   reviews: string[];
+  updateProducts: () => void;
 }
 
 const ProductCard: FC<ProductCardProps> = ({
+  id,
   title,
   category,
   price,
   employee,
   description,
   reviews,
+  updateProducts,
 }): ReactElement => {
   const [showModal, setShowModal] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string>();
 
   // remove void reviews
   const validReviews = reviews.filter((review) => !!review);
 
-  const removeProduct = () => {
-    console.log(removeProduct);
+  const { data: productData, error, isLoading, apiWrapper } = useAxios();
 
-    setShowModal(true);
+  const handleConfirm = () => {
+    apiWrapper(() => deleteProduct(id));
   };
+
+  useEffect(() => {
+    // on 200 response data in void, but not undefined
+    if (productData !== undefined) {
+      updateProducts();
+
+      setShowModal(false);
+    }
+  }, [productData, updateProducts]);
+
+  // on error show message for 2 sec
+  const handleErrorMessage = (message: string) => {
+    setErrorMessage(message);
+
+    setTimeout(() => {
+      setErrorMessage(undefined);
+    }, 2000);
+  };
+
+  useEffect(() => {
+    if (error) {
+      handleErrorMessage(error);
+    }
+  }, [error]);
 
   return (
     <>
@@ -83,15 +116,20 @@ const ProductCard: FC<ProductCardProps> = ({
           <br />
           <Styled.ModalTitle>{title}</Styled.ModalTitle>
 
+          {/* buttons */}
           <Styled.ModalButtonGroup>
-            <Button
-              onClick={removeProduct}
-              backgroundColor="#cc2e2e"
-              backgroundHoverColor="#b62a2a"
-              color="#fff"
-            >
-              Delete
-            </Button>
+            {isLoading ? (
+              <Loader />
+            ) : (
+              <Button
+                onClick={handleConfirm}
+                backgroundColor="#cc2e2e"
+                backgroundHoverColor="#b62a2a"
+                color="#fff"
+              >
+                Delete
+              </Button>
+            )}
             <Button
               backgroundColor="#ededed"
               backgroundHoverColor="#a3a3a3"
@@ -101,6 +139,9 @@ const ProductCard: FC<ProductCardProps> = ({
               Cancel
             </Button>
           </Styled.ModalButtonGroup>
+
+          {/* error message pop up */}
+          {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
         </Modal>
       )}
     </>

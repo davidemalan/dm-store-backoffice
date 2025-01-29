@@ -51,6 +51,7 @@ const Products: FC = (): ReactElement => {
           <ul>
             {productList?.list.map(({ id, data }) => (
               <ProductCard
+                id={id}
                 key={`productCard_${id}`}
                 title={data.title}
                 category={data.category}
@@ -58,6 +59,7 @@ const Products: FC = (): ReactElement => {
                 employee={data.employee}
                 description={data.description}
                 reviews={data.reviews}
+                updateProducts={updateProducts}
               />
             ))}
           </ul>
