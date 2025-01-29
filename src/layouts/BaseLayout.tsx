@@ -5,7 +5,7 @@ import Sidebar from '../components/sidebar/Sidebar';
 import Styled from './BaseLayout.styles';
 
 // base layout with outlet for routes
-const BaseLayout: React.FC = () => {
+const BaseLayout: React.FC = (): React.ReactElement => {
   return (
     <Styled.LayoutWrapper>
       {/* Sidebar */}

@@ -62,6 +62,12 @@ export const globalStyles = css`
   p {
     margin-top: 0;
   }
+
+  button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
 `;
 
 // export global style component

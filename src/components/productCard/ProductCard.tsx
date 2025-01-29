@@ -9,7 +9,14 @@ interface ProductCardProps {
   reviews: string[];
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ title, category, price, employee, description, reviews }) => {
+const ProductCard: React.FC<ProductCardProps> = ({
+  title,
+  category,
+  price,
+  employee,
+  description,
+  reviews,
+}): React.ReactElement => {
   // remove void reviews
   const validReviews = reviews.filter((review) => !!review);
 

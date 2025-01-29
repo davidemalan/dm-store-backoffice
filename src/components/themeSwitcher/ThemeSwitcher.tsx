@@ -10,7 +10,7 @@ import Sun from '../icons/Sun';
 
 import Styled from './ThemeSwitcher.styles';
 
-const ThemeSwitcher: React.FC = () => {
+const ThemeSwitcher: React.FC = (): React.ReactElement => {
   const [isToggled, setIsToggled] = useState(false);
 
   const [theme, setTheme] = useGlobalStore(useShallow((state) => [state.theme, state.setTheme]));

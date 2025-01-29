@@ -3,7 +3,7 @@ import ThemeSwitcher from '../themeSwitcher/ThemeSwitcher';
 
 import Styled from './Sidebar.styles';
 
-const Sidebar: React.FC = () => {
+const Sidebar: React.FC = (): React.ReactElement => {
   return (
     <Styled.SidebarWrapper>
       {/* Logo */}

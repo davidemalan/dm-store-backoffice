@@ -1,4 +1,4 @@
-export const Moon: React.FC = () => {
+export const Moon: React.FC = (): React.ReactElement => {
   return (
     <svg
       viewBox="0 0 24 24"

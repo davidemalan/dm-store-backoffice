@@ -8,9 +8,6 @@ const CardContainer = styled.li`
   background-color: #a3a3a3;
   padding: 20px;
   border-radius: 8px;
-
-  ${({ theme }) => theme.breakpoints.up('lg')} {
-  }
 `;
 
 const CardHeader = styled.div`

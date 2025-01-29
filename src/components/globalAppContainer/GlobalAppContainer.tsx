@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Route, BrowserRouter, Routes } from 'react-router';
 import { ThemeProvider } from 'styled-components';
 import { useShallow } from 'zustand/shallow';
@@ -12,7 +12,7 @@ import { useGlobalStore } from '../../store/hooks';
 import { Store } from '../../types/api';
 import Loader from '../loader/Loader';
 
-const GlobalAppContainer: React.FC = () => {
+const GlobalAppContainer: React.FC = (): React.ReactElement => {
   const { data: storeData, error, isLoading, apiWrapper } = useAxios<Store>();
 
   // get store values and fn
