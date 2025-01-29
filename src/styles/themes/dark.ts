@@ -14,7 +14,7 @@ export const darkTheme: Theme = {
   },
   sidebar: {
     bg: '#272727',
-    fg: '#ffffff',
+    fg: '#b3b8bc',
   },
   switch: {
     bg: '#494d55',
@@ -26,7 +26,7 @@ export const darkTheme: Theme = {
   },
   card: {
     bg: '#272727',
-    fg: '#ededed',
+    fg: '#b3b8bc',
   },
   review: {
     bg: '#ededed',

@@ -28,8 +28,8 @@ export const baseTheme: Theme = {
     fg: '#ffffff',
   },
   switch: {
-    bg: 'aqua',
-    fg: '#ffffff',
+    bg: '#ffffff',
+    fg: '#272727',
   },
   button: {
     bg: 'white',
