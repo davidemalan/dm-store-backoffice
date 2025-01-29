@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { FC, useRef } from 'react';
 
 import GlobalAppContainer from './components/globalAppContainer/GlobalAppContainer';
 import { GlobalStoreContext } from './store/context';
@@ -7,7 +7,7 @@ import { GlobalStyles } from './styles/global';
 import { baseTheme } from './styles/themes/base';
 import { GlobalState } from './types/store';
 
-const App: React.FC = (): React.ReactElement => {
+const App: FC = (): React.ReactElement => {
   const initialAppRef = useRef<GlobalState>();
 
   // Initialize the app state only once

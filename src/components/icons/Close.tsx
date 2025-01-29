@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { FC } from 'react';
 
-export const Close: React.FC = (): React.ReactElement => (
+export const Close: FC = (): React.ReactElement => (
   <svg
     width="24"
     height="24"

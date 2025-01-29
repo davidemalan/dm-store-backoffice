@@ -1,14 +1,21 @@
-import Styled from './Button.styles'
+import { FC, PropsWithChildren } from 'react';
 
-interface ButtonProps {
-    backgroundColor?: string;
-    color?: string;
-}
+import Styled from './Button.styles';
 
-const Button: React.FC<ButtonProps> = ({}): React.ReactElement => {
-    return <Styled.Button>
-        
+type ButtonProps = PropsWithChildren<{
+  backgroundColor?: string;
+  color?: string;
+}>;
+
+const Button: FC<ButtonProps> = ({ backgroundColor, color, children }): React.ReactElement => {
+  return (
+    <Styled.Button
+      $backgroundColor={backgroundColor}
+      $color={color}
+    >
+      {children}
     </Styled.Button>
-}
+  );
+};
 
-export Default Button;
+export default Button;

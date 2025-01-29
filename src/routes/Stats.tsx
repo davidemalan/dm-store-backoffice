@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { FC } from 'react';
 
-const Stats: React.FC = (): React.ReactElement => {
+const Stats: FC = (): React.ReactElement => {
   return <div>Stats</div>;
 };
 

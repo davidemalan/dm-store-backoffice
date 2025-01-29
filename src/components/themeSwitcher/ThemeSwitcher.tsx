@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { FC, useState } from 'react';
 import { useShallow } from 'zustand/shallow';
 
 import { useGlobalStore } from '../../store/hooks';
@@ -10,7 +10,7 @@ import Sun from '../icons/Sun';
 
 import Styled from './ThemeSwitcher.styles';
 
-const ThemeSwitcher: React.FC = (): React.ReactElement => {
+const ThemeSwitcher: FC = (): React.ReactElement => {
   const [isToggled, setIsToggled] = useState(false);
 
   const [theme, setTheme] = useGlobalStore(useShallow((state) => [state.theme, state.setTheme]));

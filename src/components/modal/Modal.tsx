@@ -1,3 +1,5 @@
+import { FC } from 'react';
+
 import { Close } from '../icons/Close';
 
 import Styled from './Modal.styles';
@@ -6,7 +8,7 @@ interface ModalProps {
   closeModal: () => void;
 }
 
-const Modal: React.FC<ModalProps> = ({ closeModal }): React.ReactElement => {
+const Modal: FC<ModalProps> = ({ closeModal }): React.ReactElement => {
   return (
     <Styled.Modal>
       <Styled.Card>

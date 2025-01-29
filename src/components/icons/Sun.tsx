@@ -1,4 +1,6 @@
-export const Sun: React.FC = (): React.ReactElement => {
+import { FC } from 'react';
+
+export const Sun: FC = (): React.ReactElement => {
   return (
     <svg
       viewBox="0 0 24 24"

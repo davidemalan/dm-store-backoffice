@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 
 import Modal from '../components/modal/Modal';
 import ProductCard from '../components/productCard/ProductCard';
@@ -6,7 +6,7 @@ import useAxios from '../hooks/useAxios';
 import { getProducts } from '../services/api';
 import { ProductList } from '../types/api';
 
-const Products: React.FC = (): React.ReactElement => {
+const Products: FC = (): React.ReactElement => {
   const { data: productsData, error, apiWrapper } = useAxios<ProductList>();
   const [showModal, setShowModal] = useState(false);
 

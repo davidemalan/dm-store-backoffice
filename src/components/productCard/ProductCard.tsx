@@ -1,3 +1,5 @@
+import { FC } from 'react';
+
 import Styled from './ProductCard.styles';
 
 interface ProductCardProps {
@@ -9,7 +11,7 @@ interface ProductCardProps {
   reviews: string[];
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({
+const ProductCard: FC<ProductCardProps> = ({
   title,
   category,
   price,
