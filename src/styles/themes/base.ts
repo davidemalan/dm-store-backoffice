@@ -24,16 +24,24 @@ export const baseTheme: Theme = {
     fg: '#000000',
   },
   sidebar: {
-    bg: '#b6b6b6',
-    fg: '#000000',
+    bg: '#494d55',
+    fg: '#ffffff',
   },
   switch: {
     bg: 'aqua',
     fg: '#ffffff',
   },
   button: {
-    fg: '#BF4F74',
     bg: 'white',
+    fg: '#BF4F74',
+  },
+  card: {
+    bg: '#ededed',
+    fg: 'black',
+  },
+  review: {
+    bg: '#fff',
+    fg: '#555555',
   },
   ...theme,
 };

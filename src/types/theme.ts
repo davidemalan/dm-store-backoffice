@@ -20,6 +20,14 @@ export interface Theme extends ReturnType<typeof createStyledBreakpointsTheme> {
     bg: string;
     fg: string;
   };
+  card: {
+    bg: string;
+    fg: string;
+  };
+  review: {
+    bg: string;
+    fg: string;
+  };
 }
 
 export enum ThemeTypes {

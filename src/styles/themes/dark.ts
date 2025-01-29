@@ -13,15 +13,19 @@ export const darkTheme: Theme = {
     fg: '#ffffff',
   },
   sidebar: {
-    bg: '#b6b6b6',
-    fg: '#000000',
+    bg: '#494d55',
+    fg: '#ffffff',
   },
   switch: {
     bg: '#BF4F74',
     fg: 'black',
   },
   button: {
-    fg: '#ffffff',
     bg: 'black',
+    fg: '#ffffff',
+  },
+  card: {
+    bg: '#ededed',
+    fg: 'black',
   },
 };

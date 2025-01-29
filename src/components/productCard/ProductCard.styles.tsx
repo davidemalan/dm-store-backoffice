@@ -11,7 +11,8 @@ const CardWrapper = styled.li`
 const CardContainer = styled.div`
   width: 100%;
   max-width: 600px;
-  background-color: #a3a3a3;
+  background-color: ${({ theme }) => theme.card.bg};
+  color: ${({ theme }) => theme.card.fg};
   padding: 20px;
   border-radius: 8px;
 `;
@@ -30,12 +31,12 @@ const ReviewList = styled.blockquote`
   font-family: Open Sans;
   margin: 20px;
   font-style: italic;
-  color: #555555;
   padding: 12px 30px 12px 50px;
   border-left: 8px solid #78c0a8;
   border-radius: 4px;
   position: relative;
-  background: #ededed;
+  background-color: ${({ theme }) => theme.review.bg};
+  color: ${({ theme }) => theme.review.fg};
   quotes: '“' '”';
 
   &::before {
@@ -63,7 +64,8 @@ const CardFooter = styled.div`
 const CategoryTag = styled.span`
   display: flex;
   align-items: center;
-  background-color: #ccc;
+  background-color: ${({ theme }) => theme.review.bg};
+  color: ${({ theme }) => theme.review.fg};
   border-radius: 25px;
   padding: 5px 15px;
 `;
