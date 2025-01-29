@@ -44,7 +44,7 @@ export const addProduct = (
   const body = {
     ...productData,
     store: {
-      STORE_ID: null,
+      idStore: null,
       name: null,
       category: null,
       employees: null,
