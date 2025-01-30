@@ -92,7 +92,7 @@ const ReviewList = styled.blockquote`
   margin: 20px;
   font-style: italic;
   padding: 12px 30px 12px 50px;
-  border-left: 8px solid #78c0a8;
+  border-left: 8px solid #494d55;
   border-radius: 4px;
   background-color: ${({ theme }) => theme.review.bg};
   color: ${({ theme }) => theme.review.fg};
