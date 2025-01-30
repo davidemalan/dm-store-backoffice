@@ -9,13 +9,18 @@ import useAxios from '../hooks/useAxios';
 import { getProducts } from '../services/api';
 import { useGlobalStore } from '../store/hooks';
 import { ProductList } from '../types/api';
+import { ProductsView } from '../types/store';
+
+import Styled from './Products.styles';
 
 const Products: FC = (): ReactElement => {
   const [showModal, setShowModal] = useState(false);
 
   const { data: productsData, error, apiWrapper } = useAxios<ProductList>();
 
-  const [productList, setProducts] = useGlobalStore(useShallow((state) => [state.productList, state.setProducts]));
+  const [productList, setProducts, productsView] = useGlobalStore(
+    useShallow((state) => [state.productList, state.setProducts, state.productsView])
+  );
 
   // useCallback in order to avoid rerendering infinite loops
   const updateProducts = useCallback(() => {
@@ -44,21 +49,40 @@ const Products: FC = (): ReactElement => {
           <ProductsHeader showModal={() => setShowModal(true)} />
 
           {/* products */}
-          <ul>
-            {productList?.list.map(({ id, data }) => (
-              <ProductCard
-                id={id}
-                key={`productCard_${id}`}
-                title={data.title}
-                category={data.category}
-                price={data.price}
-                employee={data.employee}
-                description={data.description}
-                reviews={data.reviews}
-                updateProducts={updateProducts}
-              />
-            ))}
-          </ul>
+          {productsView === ProductsView.LIST_VIEW ? (
+            <ul>
+              {productList?.list.map(({ id, data }) => (
+                <ProductCard
+                  id={id}
+                  key={`productCard_${id}`}
+                  title={data.title}
+                  category={data.category}
+                  price={data.price}
+                  employee={data.employee}
+                  description={data.description}
+                  reviews={data.reviews}
+                  updateProducts={updateProducts}
+                />
+              ))}
+            </ul>
+          ) : (
+            <Styled.ProductsContainer>
+              {productList?.list.map(({ id, data }) => (
+                <ProductCard
+                  id={id}
+                  key={`productCard_${id}`}
+                  title={data.title}
+                  category={data.category}
+                  price={data.price}
+                  employee={data.employee}
+                  description={data.description}
+                  reviews={data.reviews}
+                  updateProducts={updateProducts}
+                  gridView
+                />
+              ))}
+            </Styled.ProductsContainer>
+          )}
 
           {/* new product modal*/}
           {showModal && (

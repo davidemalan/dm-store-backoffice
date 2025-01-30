@@ -19,6 +19,7 @@ interface ProductCardProps {
   description: string;
   reviews: string[];
   updateProducts: () => void;
+  gridView?: boolean;
 }
 
 const ProductCard: FC<ProductCardProps> = ({
@@ -30,6 +31,7 @@ const ProductCard: FC<ProductCardProps> = ({
   description,
   reviews,
   updateProducts,
+  gridView = false,
 }): ReactElement => {
   const [showModal, setShowModal] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string>();
@@ -67,40 +69,58 @@ const ProductCard: FC<ProductCardProps> = ({
     }
   }, [error]);
 
+  const reviewView = () => {
+    if (gridView) {
+      // grid view
+      return (
+        <Styled.ReviewOverlay>
+          {/* slice in case of grid as it could take too much space */}
+          {validReviews.slice(0, 3).map((review, i) => (
+            <p key={`review_${i}`}>{review}</p>
+          ))}
+        </Styled.ReviewOverlay>
+      );
+    } else {
+      // list view
+      return (
+        <Styled.ReviewList>
+          {validReviews.map((review, i) => (
+            <p key={`review_${i}`}>{review}</p>
+          ))}
+        </Styled.ReviewList>
+      );
+    }
+  };
   return (
     <>
       <Styled.CardWrapper>
-        <Styled.CardContainer>
-          {/* Card top */}
-          <Styled.CardHeader>
-            <div>
-              <h2>{title}</h2>
-              <h4>{`${price}€`}</h4>
-            </div>
-            <Button
-              backgroundColor="#cc2e2e"
-              backgroundHoverColor="#b62a2a"
-              onClick={() => setShowModal(true)}
-              rounded
-            >
-              <Remove
-                title="Remove product"
-                color="#fff"
-              />
-            </Button>
-          </Styled.CardHeader>
+        <Styled.CardContainer $gridView={gridView}>
+          <div>
+            {/* Card top */}
+            <Styled.CardHeader>
+              <div>
+                <h2>{title}</h2>
+                <h4>{`${price}€`}</h4>
+              </div>
+              <Button
+                backgroundColor="#cc2e2e"
+                backgroundHoverColor="#b62a2a"
+                onClick={() => setShowModal(true)}
+                rounded
+              >
+                <Remove
+                  title="Remove product"
+                  color="#fff"
+                />
+              </Button>
+            </Styled.CardHeader>
 
-          {/* Card description */}
-          <p>{description}</p>
+            {/* Card description */}
+            <p>{description}</p>
+          </div>
 
           {/* Card reviews */}
-          {!!validReviews.length && (
-            <Styled.ReviewList>
-              {validReviews.map((review, i) => (
-                <p key={`review_${i}`}>{review}</p>
-              ))}
-            </Styled.ReviewList>
-          )}
+          {!!validReviews.length && reviewView()}
 
           {/* Card bottom */}
           <Styled.CardFooter>

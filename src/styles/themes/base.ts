@@ -7,7 +7,7 @@ export const theme = createStyledBreakpointsTheme({
   breakpoints: {
     xs: '375px',
     sm: '576px',
-    md: '768px',
+    md: '850px',
     lg: '1024px',
     xl: '1440px',
     xxl: '2000px',
@@ -43,5 +43,9 @@ export const baseTheme: Theme = {
     bg: '#fff',
     fg: '#555555',
   },
+  // viewButtons: {
+  //   activeBg:
+  //   activeFg:
+  // }
   ...theme,
 };
