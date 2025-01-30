@@ -19,6 +19,7 @@ export const baseTheme: Theme = {
   name: ThemeTypes.light,
   primary: 'blue',
   accent: 'aqua',
+  chartText: '#000',
   main: {
     bg: '#ffffff',
     fg: '#000000',

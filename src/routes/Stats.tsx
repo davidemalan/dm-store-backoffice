@@ -1,4 +1,4 @@
-import { Chart as ChartJS, RadialLinearScale, ArcElement, Tooltip, Legend, ChartData } from 'chart.js';
+import { Chart as ChartJS, RadialLinearScale, ArcElement, Tooltip, Legend, ChartData, elements } from 'chart.js';
 import { FC, ReactElement, useEffect, useState } from 'react';
 import { PolarArea } from 'react-chartjs-2';
 import { useTheme } from 'styled-components';
@@ -18,6 +18,8 @@ const Stats: FC = (): ReactElement => {
   const [chartData, setChartData] = useState<ChartData<'polarArea', number[], string>>();
 
   const { up } = useTheme().breakpoints;
+  const { chartText } = useTheme();
+
   // replace media because the up function returns it as part of the string
   const isMd = useMediaQuery(up('md').replace('@media ', ''));
 
@@ -31,7 +33,6 @@ const Stats: FC = (): ReactElement => {
   useEffect(() => {
     if (StatsData) {
       const mappedData = mapStatsToChart(StatsData);
-      console.log(mappedData);
 
       setChartData(mappedData);
     }
@@ -44,7 +45,17 @@ const Stats: FC = (): ReactElement => {
       {error ? (
         <>Error retrieving Stats data: {error}</>
       ) : (
-        <Styled.StatsContainer>{chartData && <PolarArea data={chartData} />}</Styled.StatsContainer>
+        <Styled.StatsContainer>
+          {chartData && (
+            <PolarArea
+              data={chartData}
+              options={{
+                plugins: { legend: { labels: { color: chartText } } },
+                scales: { r: { grid: { color: chartText } } },
+              }}
+            />
+          )}
+        </Styled.StatsContainer>
       )}
     </>
   );
