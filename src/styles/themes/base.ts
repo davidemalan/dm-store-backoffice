@@ -43,9 +43,11 @@ export const baseTheme: Theme = {
     bg: '#fff',
     fg: '#555555',
   },
-  // viewButtons: {
-  //   activeBg:
-  //   activeFg:
-  // }
+  viewButtons: {
+    activeBg: '#ededed',
+    activeFg: 'black',
+    bg: '#fff',
+    fg: 'black',
+  },
   ...theme,
 };

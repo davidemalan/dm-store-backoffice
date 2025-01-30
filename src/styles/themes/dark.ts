@@ -32,4 +32,10 @@ export const darkTheme: Theme = {
     bg: '#ededed',
     fg: 'black',
   },
+  viewButtons: {
+    activeBg: '#b3b8bc',
+    activeFg: 'black',
+    bg: '#ededed',
+    fg: 'black',
+  },
 };

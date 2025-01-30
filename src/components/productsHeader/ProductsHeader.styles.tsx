@@ -5,6 +5,7 @@ const ProductsHeaderWrapper = styled.section`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 20px;
 `;
 
 export default { ProductsHeaderWrapper };

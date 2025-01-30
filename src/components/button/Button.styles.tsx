@@ -10,7 +10,6 @@ const Button = styled.button<{
   background-color: ${({ $backgroundColor }) => $backgroundColor};
   padding: 10px 30px;
   border-radius: 20px;
-  margin-bottom: 14px;
 
   ${({ $rounded }) =>
     $rounded &&

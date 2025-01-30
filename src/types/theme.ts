@@ -28,6 +28,12 @@ export interface Theme extends ReturnType<typeof createStyledBreakpointsTheme> {
     bg: string;
     fg: string;
   };
+  viewButtons: {
+    activeBg: string;
+    activeFg: string;
+    bg: string;
+    fg: string;
+  };
 }
 
 export enum ThemeTypes {

@@ -35,6 +35,8 @@ const SwitcherButton = styled.button<{ $active: boolean }>`
   border-right: 2px solid #272727;
   border-top: 2px solid #272727;
   border-bottom: 2px solid #272727;
+  background-color: ${({ theme }) => theme.viewButtons.bg};
+  color: ${({ theme }) => theme.viewButtons.fg};
 
   &:not(:last-of-type) {
     border-left: 2px solid #272727;
@@ -50,7 +52,8 @@ const SwitcherButton = styled.button<{ $active: boolean }>`
   ${({ $active }) =>
     $active &&
     css`
-      background-color: #ededed;
+      background-color: ${({ theme }) => theme.viewButtons.activeBg};
+      color: ${({ theme }) => theme.viewButtons.activeFg};
     `};
 `;
 
