@@ -13,7 +13,7 @@ import Styled from './ThemeSwitcher.styles';
 const ThemeSwitcher: FC = (): ReactElement => {
   const [theme, setTheme] = useGlobalStore(useShallow((state) => [state.theme, state.setTheme]));
 
-  // set toggle for appereance and set theme in context
+  // set theme in context
   const onToggle = () => {
     setTheme(theme.name === ThemeTypes.light ? darkTheme : baseTheme);
   };
