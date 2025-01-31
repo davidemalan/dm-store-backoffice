@@ -1,4 +1,4 @@
-import { Chart as ChartJS, RadialLinearScale, ArcElement, Tooltip, Legend, ChartData, elements } from 'chart.js';
+import { Chart as ChartJS, RadialLinearScale, ArcElement, Tooltip, Legend, ChartData } from 'chart.js';
 import { FC, ReactElement, useEffect, useState } from 'react';
 import { PolarArea } from 'react-chartjs-2';
 import { useTheme } from 'styled-components';
