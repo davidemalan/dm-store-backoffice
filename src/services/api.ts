@@ -38,7 +38,7 @@ export const addProduct = (
   productData: NewProduct,
   httpConfig: AxiosRequestConfig<any> = {}
 ): Promise<AxiosResponse<string>> => {
-  const url = `/api/stores/${STORE_ID}/products/`;
+  const url = `/api/stores/${STORE_ID}/products`;
 
   // store property needed for the request but api accepts anything as is using only the url STORE_ID param
   const body = {

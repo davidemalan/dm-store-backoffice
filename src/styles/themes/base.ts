@@ -17,8 +17,7 @@ export const theme = createStyledBreakpointsTheme({
 // light theme as base one
 export const baseTheme: Theme = {
   name: ThemeTypes.light,
-  primary: 'blue',
-  accent: 'aqua',
+  accent: '#fff',
   chartText: '#000',
   main: {
     bg: '#ffffff',

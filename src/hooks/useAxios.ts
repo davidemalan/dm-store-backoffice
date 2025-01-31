@@ -19,11 +19,7 @@ const useAxios = <T>(): UseAxiosResponse<T> => {
 
       setData(response.data);
     } catch (err) {
-      // if axios abort on timeout, print message
-      if (axios.isCancel(err)) {
-        console.error('Request timeout');
-        setError('Request timeout');
-      } else if (axios.isAxiosError(err) && err.response) {
+      if (axios.isAxiosError(err) && err.response) {
         // if axios error, manage message
         setError(`${err.response.data.message}`);
       } else {

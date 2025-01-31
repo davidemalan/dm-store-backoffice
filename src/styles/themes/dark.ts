@@ -6,8 +6,7 @@ import { baseTheme } from './base';
 export const darkTheme: Theme = {
   ...baseTheme,
   name: ThemeTypes.dark,
-  primary: 'red',
-  accent: '#BF4F74',
+  accent: '#fff',
   chartText: '#fff',
   main: {
     bg: '#494d55',
