@@ -1,4 +1,4 @@
-import { FC, ReactElement, useEffect } from 'react';
+import { FC, ReactElement } from 'react';
 import { useShallow } from 'zustand/shallow';
 
 import { useGlobalStore } from '../../store/hooks';

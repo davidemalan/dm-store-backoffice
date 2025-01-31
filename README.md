@@ -3,16 +3,35 @@
 Starting from the minimal template setup using Vite + React + Typescript with HMR and some ESLint rules:
 [@vitejs/plugin-react](https://vite.dev/guide/) 
 
-## Expanding the ESLint configuration
+## Main Features
+
+### Expanding the ESLint configuration
 
 Added some common/custom lint rules in order to make it more production like and added prettier for formatting and allows to have consistency and readability throughout the files.
 Check:
 - `eslint.config.js`
 - `.prettierrc`
 
-## Add CSS preprocessor
 
-Added Sass in order to write generic css as scss (more comfortable).
+### Zustand
+
+Added Zustand to handle application state.
+
+### React Router
+
+Added React Router to handle route changes.
+
+### Axios
+
+Added Axios for fetch functions and useAxios hook to avoid repetitions on handling errors and data handling.
+
+### Styled Components
+
+Added Styled Componentsfor styling and modularity, also used Styled Breakpoints to handle media queries.
+
+### Chart.js
+
+Added Chart.js for the chart design and used react-chartjs-2 as it provides an easy integration for the library.
 
 ## Getting Started
 
