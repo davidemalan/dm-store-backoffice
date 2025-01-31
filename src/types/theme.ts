@@ -3,7 +3,7 @@ import { createStyledBreakpointsTheme } from 'styled-breakpoints';
 export interface Theme extends ReturnType<typeof createStyledBreakpointsTheme> {
   name: string;
   accent: string;
-  chartText: string;
+  text: string;
   main: {
     bg: string;
     fg: string;

@@ -1,4 +1,5 @@
 import { FC, ReactElement, useState } from 'react';
+import { useTheme } from 'styled-components';
 
 import { colors } from '../../consts';
 import { Close } from '../icons/Close';
@@ -10,11 +11,16 @@ import Styled from './MobileMenu.styles';
 const MobileMenu: FC = (): ReactElement => {
   const [openMenu, setOpenMenu] = useState(false);
 
+  const { text } = useTheme();
+
   return (
     <>
       {/* open menu */}
       <button onClick={() => setOpenMenu(!openMenu)}>
-        <Menu title="Menu" />
+        <Menu
+          title="Menu"
+          color={text}
+        />
       </button>
 
       {/* menu overlay and sidebar */}

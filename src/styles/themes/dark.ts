@@ -8,7 +8,7 @@ export const darkTheme: Theme = {
   ...baseTheme,
   name: ThemeTypes.dark,
   accent: colors.white,
-  chartText: colors.white,
+  text: colors.white,
   main: {
     bg: colors.gray600,
     fg: colors.white,

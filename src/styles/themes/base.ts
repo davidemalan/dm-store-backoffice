@@ -5,7 +5,7 @@ import { Theme, ThemeTypes } from '../../types/theme';
 export const baseTheme: Theme = {
   name: ThemeTypes.light,
   accent: colors.white,
-  chartText: colors.black,
+  text: colors.black,
   main: {
     bg: colors.white,
     fg: colors.black,

@@ -18,7 +18,7 @@ const Stats: FC = (): ReactElement => {
   const [chartData, setChartData] = useState<ChartData<'polarArea', number[], string>>();
 
   const { up } = useTheme().breakpoints;
-  const { chartText } = useTheme();
+  const { text } = useTheme();
 
   // replace media because the up function returns it as part of the string
   const isMd = useMediaQuery(up('md').replace('@media ', ''));
@@ -50,8 +50,8 @@ const Stats: FC = (): ReactElement => {
             <PolarArea
               data={chartData}
               options={{
-                plugins: { legend: { labels: { color: chartText } } },
-                scales: { r: { grid: { color: chartText } } },
+                plugins: { legend: { labels: { color: text } } },
+                scales: { r: { grid: { color: text } } },
               }}
             />
           )}
