@@ -18,10 +18,6 @@ const ViewSwitcher: FC = (): ReactElement => {
     setProductsView(view);
   };
 
-  useEffect(() => {
-    console.log(productsView);
-  }, [productsView]);
-
   return (
     <Styled.SwitcherContainer>
       <Styled.SwitcherButton
