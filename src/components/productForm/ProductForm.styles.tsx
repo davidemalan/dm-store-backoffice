@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+import { colors } from '../../consts';
 import Button from '../button/Button';
 
 const TextInput = styled.input`
@@ -7,9 +8,9 @@ const TextInput = styled.input`
   height: 40px;
   padding: 10px 10px;
   font-size: 16px;
-  color: #495057;
-  background-color: #fff;
-  border: 1px solid #ced4da;
+  color: ${colors.gray600};
+  background-color: ${colors.white};
+  border: 1px solid ${colors.gray300};
   border-radius: 4px;
   margin: 10px 0;
 
@@ -18,7 +19,7 @@ const TextInput = styled.input`
     box-shadow 0.15s ease-in-out;
 
   &:focus {
-    border-color: #80bdff;
+    border-color: ${colors.lightBlue};
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
   }
@@ -44,8 +45,8 @@ const LongInput = styled(TextInput)`
 const AddButton = styled(Button)``;
 
 const SubmitButton = styled.input`
-  color: #fff;
-  background-color: #2ecc71;
+  color: ${colors.white};
+  background-color: ${colors.green};
   border-radius: 25px;
   padding: 10px 30px;
   margin-bottom: 14px;
@@ -54,7 +55,7 @@ const SubmitButton = styled.input`
   font-size: 16px;
 
   &:hover {
-    background-color: #25a85c;
+    background-color: ${colors.darkGreen};
   }
 `;
 

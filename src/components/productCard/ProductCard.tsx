@@ -1,5 +1,6 @@
 import { FC, ReactElement, useEffect, useState } from 'react';
 
+import { colors } from '../../consts';
 import useAxios from '../../hooks/useAxios';
 import { deleteProduct } from '../../services/api';
 import Button from '../button/Button';
@@ -103,14 +104,14 @@ const ProductCard: FC<ProductCardProps> = ({
                 <h4>{`${price}€`}</h4>
               </div>
               <Button
-                backgroundColor="#cc2e2e"
-                backgroundHoverColor="#b62a2a"
+                backgroundColor={colors.red}
+                backgroundHoverColor={colors.darkRed}
                 onClick={() => setShowModal(true)}
                 rounded
               >
                 <Remove
                   title="Remove product"
-                  color="#fff"
+                  color={colors.white}
                 />
               </Button>
             </Styled.CardHeader>
@@ -144,17 +145,17 @@ const ProductCard: FC<ProductCardProps> = ({
             ) : (
               <Button
                 onClick={handleConfirm}
-                backgroundColor="#cc2e2e"
-                backgroundHoverColor="#b62a2a"
-                color="#fff"
+                backgroundColor={colors.red}
+                backgroundHoverColor={colors.darkRed}
+                color={colors.white}
               >
                 Delete
               </Button>
             )}
             <Button
-              backgroundColor="#ededed"
-              backgroundHoverColor="#a3a3a3"
-              color="#000"
+              backgroundColor={colors.gray200}
+              backgroundHoverColor={colors.gray300}
+              color={colors.black}
               onClick={() => setShowModal(false)}
             >
               Cancel

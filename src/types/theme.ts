@@ -16,10 +16,6 @@ export interface Theme extends ReturnType<typeof createStyledBreakpointsTheme> {
     bg: string;
     fg: string;
   };
-  button: {
-    bg: string;
-    fg: string;
-  };
   card: {
     bg: string;
     fg: string;

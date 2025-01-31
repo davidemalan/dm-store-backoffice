@@ -1,6 +1,8 @@
 import { Link } from 'react-router';
 import { styled } from 'styled-components';
 
+import { colors } from '../../consts';
+
 const SidebarWrapper = styled.section`
   height: 100%;
   display: flex;
@@ -36,7 +38,7 @@ const LogoContainer = styled.div`
 
 const RouterLink = styled(Link)`
   font-size: 18px;
-  border-bottom: 2px solid transparent;
+  border-bottom: 2px solid ${colors.transparent};
 
   &:hover {
     font-weight: bold;

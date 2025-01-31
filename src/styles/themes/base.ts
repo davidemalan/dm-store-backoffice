@@ -1,53 +1,36 @@
-import { createStyledBreakpointsTheme } from 'styled-breakpoints';
-
+import { breakpointsTheme, colors } from '../../consts';
 import { Theme, ThemeTypes } from '../../types/theme';
-
-// create breakpoint object and pass to theme
-export const theme = createStyledBreakpointsTheme({
-  breakpoints: {
-    xs: '375px',
-    sm: '576px',
-    md: '850px',
-    lg: '1024px',
-    xl: '1440px',
-    xxl: '2000px',
-  },
-});
 
 // light theme as base one
 export const baseTheme: Theme = {
   name: ThemeTypes.light,
-  accent: '#fff',
-  chartText: '#000',
+  accent: colors.white,
+  chartText: colors.black,
   main: {
-    bg: '#ffffff',
-    fg: '#000000',
+    bg: colors.white,
+    fg: colors.black,
   },
   sidebar: {
-    bg: '#494d55',
-    fg: '#ffffff',
+    bg: colors.gray600,
+    fg: colors.white,
   },
   switch: {
-    bg: '#ffffff',
-    fg: '#272727',
-  },
-  button: {
-    bg: 'white',
-    fg: '#BF4F74',
+    bg: colors.white,
+    fg: colors.gray700,
   },
   card: {
-    bg: '#ededed',
-    fg: 'black',
+    bg: colors.gray200,
+    fg: colors.black,
   },
   review: {
-    bg: '#fff',
-    fg: '#555555',
+    bg: colors.white,
+    fg: colors.gray600,
   },
   viewButtons: {
-    activeBg: '#ededed',
-    activeFg: 'black',
-    bg: '#fff',
-    fg: 'black',
+    activeBg: colors.gray200,
+    activeFg: colors.black,
+    bg: colors.white,
+    fg: colors.black,
   },
-  ...theme,
+  ...breakpointsTheme,
 };

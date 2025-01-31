@@ -1,5 +1,7 @@
 import { css, styled } from 'styled-components';
 
+import { colors } from '../../consts';
+
 const SwitcherContainer = styled.div`
   display: flex;
   align-items: center;
@@ -8,12 +10,12 @@ const SwitcherContainer = styled.div`
   button {
     height: 34px;
     padding: 4px 10px;
-    border-right: 2px solid #272727;
-    border-top: 2px solid #272727;
-    border-bottom: 2px solid #272727;
+    border-right: 2px solid ${colors.gray700};
+    border-top: 2px solid ${colors.gray700};
+    border-bottom: 2px solid ${colors.gray700};
 
     &:not(:last-of-type) {
-      border-left: 2px solid #272727;
+      border-left: 2px solid ${colors.gray700};
       border-top-left-radius: 25px;
       border-bottom-left-radius: 25px;
     }
@@ -24,7 +26,7 @@ const SwitcherContainer = styled.div`
     }
 
     .active {
-      background-color: #272727;
+      background-color: ${colors.gray700};
     }
   }
 `;
@@ -32,14 +34,14 @@ const SwitcherContainer = styled.div`
 const SwitcherButton = styled.button<{ $active: boolean }>`
   height: 34px;
   padding: 4px 10px;
-  border-right: 2px solid #272727;
-  border-top: 2px solid #272727;
-  border-bottom: 2px solid #272727;
+  border-right: 2px solid ${colors.gray700};
+  border-top: 2px solid ${colors.gray700};
+  border-bottom: 2px solid ${colors.gray700};
   background-color: ${({ theme }) => theme.viewButtons.bg};
   color: ${({ theme }) => theme.viewButtons.fg};
 
   &:not(:last-of-type) {
-    border-left: 2px solid #272727;
+    border-left: 2px solid ${colors.gray700};
     border-top-left-radius: 25px;
     border-bottom-left-radius: 25px;
   }

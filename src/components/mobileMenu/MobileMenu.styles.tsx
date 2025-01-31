@@ -1,5 +1,7 @@
 import { styled } from 'styled-components';
 
+import { colors } from '../../consts';
+
 const MenuButton = styled.button<{
   $isOpen?: boolean;
 }>`
@@ -7,7 +9,7 @@ const MenuButton = styled.button<{
   z-index: 9;
   top: 20px;
   right: 20px;
-  color: #fff;
+  color: ${colors.white};
 `;
 
 const Overlay = styled.div`

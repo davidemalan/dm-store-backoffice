@@ -1,6 +1,7 @@
 import 'styled-components';
 import { createGlobalStyle, css } from 'styled-components';
 
+import { colors } from '../consts';
 import { Theme } from '../types/theme';
 
 // type theme
@@ -64,7 +65,7 @@ export const globalStyles = css`
   }
 
   button {
-    background-color: transparent;
+    background-color: ${colors.transparent};
     border: none;
     cursor: pointer;
   }

@@ -1,5 +1,7 @@
 import { styled } from 'styled-components';
 
+import { colors } from '../../consts';
+
 const Modal = styled.div`
   width: 100%;
   height: 100vh;
@@ -18,7 +20,7 @@ const Modal = styled.div`
 const Card = styled.div`
   min-width: 100%;
   padding: 20px 40px;
-  background: #fff;
+  background: ${colors.white};
   text-align: center;
   border-radius: 4px;
   max-width: 750px;
@@ -36,14 +38,14 @@ const Card = styled.div`
   }
 
   &::-webkit-scrollbar-track {
-    background: #f1f1f1;
+    background: ${colors.gray100};
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: #c4c4c4;
+    background-color: ${colors.gray300};
 
     &:hover {
-      background-color: #acacac;
+      background-color: ${colors.gray500};
     }
   }
 `;

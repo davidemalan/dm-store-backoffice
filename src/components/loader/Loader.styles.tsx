@@ -1,5 +1,7 @@
 import { keyframes, styled } from 'styled-components';
 
+import { colors } from '../../consts';
+
 // spin keyframe fro loader
 const spin = keyframes`
   0% {
@@ -23,7 +25,7 @@ const Loader = styled.div`
   animation: ${spin} 1s linear infinite;
   width: 48px;
   height: 48px;
-  border: 5px solid #fff;
+  border: 5px solid ${colors.white};
   border-bottom-color: ${({ theme }) => theme.primary};
   border-radius: 50%;
   box-sizing: border-box;

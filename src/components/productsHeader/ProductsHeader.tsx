@@ -2,6 +2,7 @@ import { FC, ReactElement } from 'react';
 import { useTheme } from 'styled-components';
 import { useMediaQuery } from 'usehooks-ts';
 
+import { colors } from '../../consts';
 import Button from '../button/Button';
 import MobileMenu from '../mobileMenu/MobileMenu';
 import ViewSwitcher from '../viewSwitcher/ViewSwitcher';
@@ -21,9 +22,9 @@ const ProductsHeader: FC<ProductsHeaderProps> = ({ showModal }): ReactElement =>
     <Styled.ProductsHeaderWrapper>
       <Button
         onClick={showModal}
-        color="#fff"
-        backgroundColor="#2ecc71"
-        backgroundHoverColor="#25a85c"
+        color={colors.white}
+        backgroundColor={colors.green}
+        backgroundHoverColor={colors.darkGreen}
       >
         Add new Product
       </Button>

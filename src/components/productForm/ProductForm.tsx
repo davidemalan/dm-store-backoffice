@@ -1,6 +1,7 @@
 import { ChangeEvent, FC, FormEvent, ReactElement, useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
+import { colors } from '../../consts';
 import useAxios from '../../hooks/useAxios';
 import { addProduct } from '../../services/api';
 import Button from '../button/Button';
@@ -173,7 +174,7 @@ const ProductForm: FC<ProductFormProps> = ({ updateProducts }): ReactElement => 
             />
           ))}
           <Button
-            backgroundColor="#ededed"
+            backgroundColor={colors.gray200}
             rounded
             onClick={(event) => addReview(event as FormEvent<HTMLFormElement>)}
           >

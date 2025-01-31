@@ -1,6 +1,8 @@
 import { FC, ReactElement } from 'react';
 
-export const Close: FC<{ color?: string }> = ({ color = '#000' }): ReactElement => (
+import { colors } from '../../consts';
+
+export const Close: FC<{ color?: string }> = ({ color = colors.black }): ReactElement => (
   <svg
     width="24"
     height="24"

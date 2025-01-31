@@ -1,3 +1,4 @@
+import { colors } from '../../consts';
 import { Theme, ThemeTypes } from '../../types/theme';
 
 import { baseTheme } from './base';
@@ -6,36 +7,32 @@ import { baseTheme } from './base';
 export const darkTheme: Theme = {
   ...baseTheme,
   name: ThemeTypes.dark,
-  accent: '#fff',
-  chartText: '#fff',
+  accent: colors.white,
+  chartText: colors.white,
   main: {
-    bg: '#494d55',
-    fg: '#ffffff',
+    bg: colors.gray600,
+    fg: colors.white,
   },
   sidebar: {
-    bg: '#272727',
-    fg: '#b3b8bc',
+    bg: colors.gray700,
+    fg: colors.gray400,
   },
   switch: {
-    bg: '#494d55',
-    fg: 'black',
-  },
-  button: {
-    bg: 'black',
-    fg: '#ffffff',
+    bg: colors.gray600,
+    fg: colors.black,
   },
   card: {
-    bg: '#272727',
-    fg: '#b3b8bc',
+    bg: colors.gray700,
+    fg: colors.gray400,
   },
   review: {
-    bg: '#ededed',
-    fg: 'black',
+    bg: colors.gray200,
+    fg: colors.black,
   },
   viewButtons: {
-    activeBg: '#b3b8bc',
-    activeFg: 'black',
-    bg: '#ededed',
-    fg: 'black',
+    activeBg: colors.gray400,
+    activeFg: colors.black,
+    bg: colors.gray200,
+    fg: colors.black,
   },
 };

@@ -1,5 +1,7 @@
 import { css, styled } from 'styled-components';
 
+import { colors } from '../../consts';
+
 const CardWrapper = styled.li`
   width: 100%;
   margin-bottom: 20px;
@@ -66,7 +68,7 @@ const ReviewOverlay = styled.div`
   width: 100%;
   height: 0;
   background-color: rgba(0, 0, 0, 0);
-  color: #fff;
+  color: ${colors.white};
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
   padding: 10px 20px;
@@ -92,7 +94,7 @@ const ReviewList = styled.blockquote`
   margin: 20px;
   font-style: italic;
   padding: 12px 30px 12px 50px;
-  border-left: 8px solid #494d55;
+  border-left: 8px solid ${colors.gray600};
   border-radius: 4px;
   background-color: ${({ theme }) => theme.review.bg};
   color: ${({ theme }) => theme.review.fg};
