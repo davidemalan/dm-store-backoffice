@@ -11,15 +11,15 @@ import Sun from '../icons/Sun';
 import Styled from './ThemeSwitcher.styles';
 
 const ThemeSwitcher: FC = (): ReactElement => {
-  const [isToggled, setIsToggled] = useState(false);
-
   const [theme, setTheme] = useGlobalStore(useShallow((state) => [state.theme, state.setTheme]));
 
   // set toggle for appereance and set theme in context
   const onToggle = () => {
-    setIsToggled(!isToggled);
     setTheme(theme.name === ThemeTypes.light ? darkTheme : baseTheme);
   };
+
+  // keep track of toggle between mobile and desktop menu
+  const isToggled = theme.name === ThemeTypes.dark;
 
   return (
     <Styled.SwitcherContainer>
