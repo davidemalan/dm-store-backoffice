@@ -9,11 +9,11 @@ import Products from '../../routes/Products';
 import Stats from '../../routes/Stats';
 import { getStoreById } from '../../services/api';
 import { useGlobalStore } from '../../store/hooks';
-import { Store } from '../../types/api';
+import { StoreData } from '../../types/api';
 import Loader from '../loader/Loader';
 
 const GlobalAppContainer: FC = (): ReactElement => {
-  const { data: storeData, error, isLoading, apiWrapper } = useAxios<Store>();
+  const { data: storeData, error, isLoading, apiWrapper } = useAxios<StoreData>();
 
   // get store values and fn
   // from zustand v5 use shallow avoids infinite re rendering loops
@@ -26,8 +26,8 @@ const GlobalAppContainer: FC = (): ReactElement => {
 
   // update store
   useEffect(() => {
-    if (storeData && storeData.data !== store) {
-      setStore(storeData.data);
+    if (storeData && storeData !== store) {
+      setStore(storeData);
     }
   }, [setStore, store, storeData]);
 
