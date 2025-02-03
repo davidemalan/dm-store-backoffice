@@ -23,7 +23,7 @@ Added React Router to handle route changes.
 
 ### Axios
 
-Added Axios for fetch functions and useAxios hook to avoid repetitions on handling errors and data handling.
+Added Axios for fetch functions and useAxios hook to avoid repetitions on handling errors and data handling, with usePagination hook for Pagination.
 
 ### Styled Components
 
