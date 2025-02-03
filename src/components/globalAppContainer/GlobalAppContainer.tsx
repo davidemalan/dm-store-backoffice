@@ -26,8 +26,8 @@ const GlobalAppContainer: FC = (): ReactElement => {
 
   // update store
   useEffect(() => {
-    if (storeData && storeData !== store) {
-      setStore(storeData);
+    if (storeData && storeData.data !== store) {
+      setStore(storeData.data);
     }
   }, [setStore, store, storeData]);
 
