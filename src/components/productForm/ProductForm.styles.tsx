@@ -1,9 +1,9 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { colors } from '../../consts';
 import Button from '../button/Button';
 
-const TextInput = styled.input`
+const inputStyle = css`
   width: 100%;
   height: 40px;
   padding: 10px 10px;
@@ -30,7 +30,17 @@ const TextInput = styled.input`
   }
 `;
 
-const PriceLabel = styled.label`
+const TextInput = styled.input`
+  ${inputStyle}
+`;
+
+const SelectInput = styled.select`
+  ${inputStyle}
+
+  margin-left: 20px;
+`;
+
+const InputLabel = styled.label`
   font-weight: 700;
 `;
 
@@ -61,7 +71,8 @@ const SubmitButton = styled.input`
 
 export default {
   TextInput,
-  PriceLabel,
+  SelectInput,
+  InputLabel,
   PriceInput,
   LongInput,
   AddButton,

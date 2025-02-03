@@ -1,9 +1,11 @@
 import { ChangeEvent, FC, FormEvent, ReactElement, useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import { useShallow } from 'zustand/shallow';
 
 import { colors } from '../../consts';
 import useAxios from '../../hooks/useAxios';
 import { addProduct } from '../../services/api';
+import { useGlobalStore } from '../../store/hooks';
 import Button from '../button/Button';
 import ErrorMessage from '../errorMessage/ErrorMessage';
 import { Plus } from '../icons/Plus';
@@ -16,13 +18,15 @@ interface ProductFormProps {
 }
 
 const ProductForm: FC<ProductFormProps> = ({ updateProducts }): ReactElement => {
+  const [store] = useGlobalStore(useShallow((state) => [state.store]));
+
   const [errorMessage, setErrorMessage] = useState<string>();
   const [newProduct, setNewProduct] = useState({
     productId: uuidv4(),
     title: '',
     category: '',
     price: 0,
-    employee: '',
+    employee: store?.employees[0] ?? '',
     description: '',
     reviews: [''],
   });
@@ -65,6 +69,14 @@ const ProductForm: FC<ProductFormProps> = ({ updateProducts }): ReactElement => 
     }));
   };
 
+  // on employee  change
+  const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setNewProduct((prev) => ({
+      ...prev,
+      employee: event.target.value,
+    }));
+  };
+
   // on change input update state based on input name
   const handleReviewChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -94,6 +106,18 @@ const ProductForm: FC<ProductFormProps> = ({ updateProducts }): ReactElement => 
     });
   };
 
+  // map employees from store
+  const renderEmployeesOptions = () => {
+    return store?.employees.map((employee) => (
+      <option
+        key={employee}
+        value={employee}
+      >
+        {employee}
+      </option>
+    ));
+  };
+
   useEffect(() => {
     if (error) {
       handleErrorMessage(error);
@@ -113,13 +137,19 @@ const ProductForm: FC<ProductFormProps> = ({ updateProducts }): ReactElement => 
       <form onSubmit={handleSubmit}>
         {/* simple inputs section */}
         <section>
-          <Styled.TextInput
-            name="employee"
-            value={newProduct.employee}
-            onChange={handleInputChange}
-            type="text"
-            placeholder="Employee"
-          />
+          <Styled.InputLabel>
+            Employee:
+            {store?.employees && (
+              <Styled.SelectInput
+                name="employee"
+                value={newProduct.employee}
+                onChange={handleSelectChange}
+              >
+                {renderEmployeesOptions()}
+              </Styled.SelectInput>
+            )}
+          </Styled.InputLabel>
+
           <Styled.TextInput
             name="category"
             value={newProduct.category}
@@ -146,7 +176,7 @@ const ProductForm: FC<ProductFormProps> = ({ updateProducts }): ReactElement => 
           />
 
           {/* price input with label because of no placeholder */}
-          <Styled.PriceLabel>
+          <Styled.InputLabel>
             Price:
             <Styled.PriceInput
               name="price"
@@ -157,7 +187,7 @@ const ProductForm: FC<ProductFormProps> = ({ updateProducts }): ReactElement => 
               step=".01"
               min="0"
             />
-          </Styled.PriceLabel>
+          </Styled.InputLabel>
         </section>
 
         {/* reviews */}
