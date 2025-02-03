@@ -48,6 +48,8 @@ yarn dev
 
 Open [http://localhost:5173/](http://localhost:5173/) with your browser to see the result.
 
+Note: check .env file in order to change api endpoint, store id or pagination behaviour.
+
 ## Build for production
 
 If wanted, the final production output can be double-check by doing the following:
