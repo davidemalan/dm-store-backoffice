@@ -2,6 +2,7 @@ import { createStyledBreakpointsTheme } from 'styled-breakpoints';
 
 export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 export const STORE_ID = import.meta.env.VITE_STORE_ID;
+export const PRODUCTS_PER_PAGE = import.meta.env.VITE_PRODUCTS_PER_PAGE;
 
 // create breakpoint object and pass to theme
 export const breakpointsTheme = createStyledBreakpointsTheme({

@@ -1,10 +1,10 @@
-import { ProductList, Store } from './api';
+import { Product, Store } from './api';
 import { Theme } from './theme';
 
 export interface GlobalState {
   theme: Theme;
   store?: Store;
-  productList?: ProductList;
+  productList?: Product[];
   productsView?: ProductsView;
 }
 

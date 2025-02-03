@@ -42,3 +42,12 @@ export interface StoreCategoryStats {
   numberOfProducts: number;
   category: string;
 }
+
+export interface Pagination {
+  data?: Product[];
+  isLoading: boolean;
+  hasMore: boolean;
+  error?: string;
+  loadProducts: () => void;
+  reloadAll: () => void;
+}

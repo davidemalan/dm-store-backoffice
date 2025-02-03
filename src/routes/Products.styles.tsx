@@ -15,6 +15,13 @@ const ProductsContainer = styled.ul`
   }
 `;
 
+const LoadMoreContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+`;
+
 export default {
   ProductsContainer,
+  LoadMoreContainer,
 };

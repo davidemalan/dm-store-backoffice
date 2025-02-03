@@ -1,14 +1,15 @@
 import { FC, ReactElement, useCallback, useEffect, useState } from 'react';
 import { useShallow } from 'zustand/shallow';
 
+import Button from '../components/button/Button';
+import Loader from '../components/loader/Loader';
 import Modal from '../components/modal/Modal';
 import ProductCard from '../components/productCard/ProductCard';
 import ProductForm from '../components/productForm/ProductForm';
 import ProductsHeader from '../components/productsHeader/ProductsHeader';
-import useAxios from '../hooks/useAxios';
-import { getProducts } from '../services/api';
+import { colors } from '../consts';
+import usePagination from '../hooks/usePagination';
 import { useGlobalStore } from '../store/hooks';
-import { ProductList } from '../types/api';
 import { ProductsView } from '../types/store';
 
 import Styled from './Products.styles';
@@ -16,23 +17,23 @@ import Styled from './Products.styles';
 const Products: FC = (): ReactElement => {
   const [showModal, setShowModal] = useState(false);
 
-  const { data: productsData, error, apiWrapper } = useAxios<ProductList>();
+  const { data: productsData, isLoading, error, hasMore, loadProducts, reloadAll } = usePagination();
 
   const [productList, setProducts, productsView] = useGlobalStore(
     useShallow((state) => [state.productList, state.setProducts, state.productsView])
   );
 
   // useCallback in order to avoid rerendering infinite loops
-  const updateProducts = useCallback(() => {
-    apiWrapper(getProducts);
+  const reloadProducts = () => {
+    reloadAll();
 
     setShowModal(false);
-  }, [apiWrapper]);
+  };
 
-  // get the product list
+  // get the product list, no array as the loadProducts re renders in loop
   useEffect(() => {
-    updateProducts();
-  }, [apiWrapper, updateProducts]);
+    loadProducts();
+  }, []);
 
   // set data in store
   useEffect(() => {
@@ -51,7 +52,7 @@ const Products: FC = (): ReactElement => {
           {/* products */}
           {productsView === ProductsView.LIST_VIEW ? (
             <ul>
-              {productList?.list.map(({ id, data }) => (
+              {productList?.map(({ id, data }) => (
                 <ProductCard
                   id={id}
                   key={`productCard_${id}`}
@@ -61,13 +62,13 @@ const Products: FC = (): ReactElement => {
                   employee={data.employee}
                   description={data.description}
                   reviews={data.reviews}
-                  updateProducts={updateProducts}
+                  updateProducts={reloadProducts}
                 />
               ))}
             </ul>
           ) : (
             <Styled.ProductsContainer>
-              {productList?.list.map(({ id, data }) => (
+              {productList?.map(({ id, data }) => (
                 <ProductCard
                   id={id}
                   key={`productCard_${id}`}
@@ -77,17 +78,35 @@ const Products: FC = (): ReactElement => {
                   employee={data.employee}
                   description={data.description}
                   reviews={data.reviews}
-                  updateProducts={updateProducts}
+                  updateProducts={reloadProducts}
                   gridView
                 />
               ))}
             </Styled.ProductsContainer>
           )}
 
+          {/* load more button*/}
+          {hasMore && (
+            <Styled.LoadMoreContainer>
+              {isLoading ? (
+                <Loader />
+              ) : (
+                <Button
+                  backgroundColor={colors.gray200}
+                  backgroundHoverColor={colors.gray300}
+                  color={colors.black}
+                  onClick={loadProducts}
+                >
+                  Load More
+                </Button>
+              )}
+            </Styled.LoadMoreContainer>
+          )}
+
           {/* new product modal*/}
           {showModal && (
             <Modal closeModal={() => setShowModal(false)}>
-              <ProductForm updateProducts={updateProducts} />
+              <ProductForm updateProducts={reloadProducts} />
             </Modal>
           )}
         </>

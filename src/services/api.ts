@@ -1,6 +1,6 @@
 import { AxiosRequestConfig, AxiosResponse } from 'axios';
 
-import { STORE_ID } from '../consts';
+import { STORE_ID, PRODUCTS_PER_PAGE } from '../consts';
 import { NewProduct, ProductData, ProductList, Store, StoreCategoryStats } from '../types/api';
 
 import { client } from './axios';
@@ -19,8 +19,12 @@ export const getStoreById = (httpConfig: AxiosRequestConfig<any> = {}): Promise<
 };
 
 /* products */
-export const getProducts = (httpConfig: AxiosRequestConfig<any> = {}): Promise<AxiosResponse<ProductList>> => {
-  const url = `/api/stores/${STORE_ID}/products?page=1&elements=50`;
+export const getProducts = (
+  page: number,
+  numberOfProducts?: number,
+  httpConfig: AxiosRequestConfig<any> = {}
+): Promise<AxiosResponse<ProductList>> => {
+  const url = `/api/stores/${STORE_ID}/products?page=${page}&elements=${numberOfProducts || PRODUCTS_PER_PAGE}`;
 
   return client.get(url, httpConfig);
 };
